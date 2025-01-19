@@ -25,3 +25,6 @@ firebase-debug.log
 functions-debug.log
 database-debug.log
 firestore-debug.log
+
+# Environment variables.
+.env
