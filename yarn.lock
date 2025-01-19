@@ -423,6 +423,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@drivechart/scripts@workspace:packages/scripts":
+  version: 0.0.0-use.local
+  resolution: "@drivechart/scripts@workspace:packages/scripts"
+  dependencies:
+    "@drivechart/shared": "workspace:*"
+    "@types/node": "npm:^22.10.5"
+    dotenv: "npm:^16.4.7"
+  languageName: unknown
+  linkType: soft
+
 "@drivechart/shared-client@workspace:*, @drivechart/shared-client@workspace:packages/sharedClient":
   version: 0.0.0-use.local
   resolution: "@drivechart/shared-client@workspace:packages/sharedClient"
@@ -435,16 +445,6 @@ __metadata:
 "@drivechart/shared@workspace:*, @drivechart/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@drivechart/shared@workspace:packages/shared"
-  languageName: unknown
-  linkType: soft
-
-"@drviechart/scripts@workspace:packages/scripts":
-  version: 0.0.0-use.local
-  resolution: "@drviechart/scripts@workspace:packages/scripts"
-  dependencies:
-    "@drivechart/shared": "workspace:*"
-    "@types/node": "npm:^22.10.5"
-    dotenv: "npm:^16.4.7"
   languageName: unknown
   linkType: soft
 
