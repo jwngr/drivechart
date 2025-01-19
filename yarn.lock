@@ -410,8 +410,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@drivechart/pwa@workspace:packages/pwa"
   dependencies:
-    "@drivechart/shared": "npm:1.0.0"
-    "@drivechart/shared-client": "npm:1.0.0"
+    "@drivechart/shared": "workspace:*"
+    "@drivechart/shared-client": "workspace:*"
     "@types/react": "npm:^19.0.4"
     "@types/react-dom": "npm:^19.0.2"
     "@vitejs/plugin-react": "npm:^4.3.4"
@@ -423,16 +423,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@drivechart/shared-client@npm:1.0.0, @drivechart/shared-client@workspace:packages/sharedClient":
+"@drivechart/shared-client@workspace:*, @drivechart/shared-client@workspace:packages/sharedClient":
   version: 0.0.0-use.local
   resolution: "@drivechart/shared-client@workspace:packages/sharedClient"
   dependencies:
-    "@drivechart/shared": "npm:1.0.0"
+    "@drivechart/shared": "workspace:*"
     zustand: "npm:^5.0.3"
   languageName: unknown
   linkType: soft
 
-"@drivechart/shared@npm:1.0.0, @drivechart/shared@workspace:packages/shared":
+"@drivechart/shared@workspace:*, @drivechart/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@drivechart/shared@workspace:packages/shared"
   languageName: unknown
@@ -442,8 +442,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@drviechart/scripts@workspace:packages/scripts"
   dependencies:
-    "@drivechart/shared": "npm:1.0.0"
+    "@drivechart/shared": "workspace:*"
     "@types/node": "npm:^22.10.5"
+    dotenv: "npm:^16.4.7"
   languageName: unknown
   linkType: soft
 
@@ -2482,6 +2483,13 @@ __metadata:
     no-case: "npm:^3.0.4"
     tslib: "npm:^2.0.3"
   checksum: 10c0/5b859ea65097a7ea870e2c91b5768b72ddf7fa947223fd29e167bcdff58fe731d941c48e47a38ec8aa8e43044c8fbd15cd8fa21689a526bc34b6548197cd5b05
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.4.7":
+  version: 16.4.7
+  resolution: "dotenv@npm:16.4.7"
+  checksum: 10c0/be9f597e36a8daf834452daa1f4cc30e5375a5968f98f46d89b16b983c567398a330580c88395069a77473943c06b877d1ca25b4afafcdd6d4adb549e8293462
   languageName: node
   linkType: hard
 

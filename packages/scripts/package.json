@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@drivechart/shared": "1.0.0"
+    "@drivechart/shared": "workspace:*",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "@types/node": "^22.10.5"
@@ -19,6 +20,7 @@
     "ci": "rm -rf node_modules/ && yarn install",
     "build": "exit 0",
     "clean": "rm -rf dist/ distIgnore/",
-    "test": "echo 'TODO: Implement tests for scripts'"
+    "test": "echo 'TODO: Implement tests for scripts'",
+    "fetch-nd": "tsx src/scripts/fetchNdGame.ts"
   }
 }

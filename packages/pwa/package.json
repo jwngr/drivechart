@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@drivechart/shared": "1.0.0",
-    "@drivechart/shared-client": "1.0.0",
+    "@drivechart/shared": "workspace:*",
+    "@drivechart/shared-client": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
