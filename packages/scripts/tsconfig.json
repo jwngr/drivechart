@@ -1,0 +1,19 @@
+{
+  "include": ["src"],
+  "extends": "../../tsconfig.base.json",
+
+  // This package consumes the `shared` package.
+  "references": [{"path": "../shared"}],
+
+  "compilerOptions": {
+    // Emit `tsc` output to an ignored directory since we run scripts directly.
+    "outDir": "./distIgnore",
+
+    // Import aliases.
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@shared/*": ["../shared/src/*"]
+    }
+  }
+}

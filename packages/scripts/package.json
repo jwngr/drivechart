@@ -1,0 +1,26 @@
+{
+  "name": "@drivechart/scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@drivechart/shared": "workspace:*",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5"
+  },
+  "scripts": {
+    "validate": "yarn run validate:lint && yarn run validate:types && yarn run validate:format",
+    "validate:lint": "eslint src --report-unused-disable-directives --max-warnings 0",
+    "validate:lint:fix": "eslint src --fix",
+    "validate:types": "tsc --build",
+    "validate:format": "prettier --check 'src/**/*.{js,ts,json}'",
+    "format": "prettier --write 'src/**/*.{js,ts,json}'",
+    "ci": "rm -rf node_modules/ && yarn install",
+    "build": "exit 0",
+    "clean": "rm -rf dist/ distIgnore/",
+    "test": "echo 'TODO: Implement tests for scripts'",
+    "fetch-nd": "tsx src/scripts/fetchNdGame.ts"
+  }
+}
