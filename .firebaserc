@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "drivechart-dev",
+    "local": "drivechart-dev",
+    "stag": "drivechart-stag",
+    "prod": "drivechart-prod"
+  }
+}

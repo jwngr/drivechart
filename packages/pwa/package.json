@@ -1,0 +1,42 @@
+{
+  "name": "@drivechart/pwa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@drivechart/shared": "1.0.0",
+    "@drivechart/shared-client": "1.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "source-map-explorer": "^2.5.3",
+    "vite": "^6.0.7",
+    "vite-plugin-svgr": "^4.3.0"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer dist/*",
+    "validate": "yarn run validate:lint && yarn run validate:types && yarn run validate:format",
+    "validate:lint": "eslint src",
+    "validate:lint:fix": "eslint src --fix",
+    "validate:types": "tsc --build",
+    "validate:format": "prettier --check 'src/**/*.{js,jsx,ts,tsx,json,css,svg}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,svg}'",
+    "start": "vite",
+    "clean": "rm -rf dist/ distIgnore/",
+    "ci": "rm -rf node_modules/ && yarn install",
+    "build": "yarn run clean && vite build",
+    "preview": "vite preview",
+    "deploy": "firebase deploy --only hosting",
+    "test": "echo 'TODO: Implement tests for PWA'"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

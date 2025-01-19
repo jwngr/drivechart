@@ -1,0 +1,40 @@
+name: Deploy prod PWA on merge
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/pwa/**'
+      - 'packages/shared/**'
+      - 'packages/sharedClient/**'
+      - '.firebaserc'
+      - '.prettierrc'
+      - 'eslint.config.mjs'
+      - 'firebase.json'
+      - 'package.json'
+      - 'tsconfig.json'
+      - 'yarn.lock'
+      - '.github/actions/setup-workflow/**'
+      - '.github/workflows/firebase-hosting-merge.yml'
+jobs:
+  deploy_hosting_prod:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: CI setup action for Firebase deploy
+        uses: ./.github/actions/setup-workflow
+        with:
+          install-deps: 'true'
+          install-firebase: 'true'
+      - name: Validate PWA
+        run: yarn run validate:pwa
+      - name: Build PWA
+        run: yarn run build:pwa
+      - name: Deploy PWA
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_drivechart_PROD }}
+          channelId: live
+          projectId: drivechart-prod
