@@ -5,7 +5,7 @@ export const App: React.FC = () => {
   return (
     <StrictMode>
       {/* <ErrorBoundary fallback={(error) => <ErrorScreen error={error} />}> */}
-      <p>Hello world</p>
+      <p className="text-3xl font-bold underline">Hello world</p>
       {/* </ErrorBoundary> */}
     </StrictMode>
   );
