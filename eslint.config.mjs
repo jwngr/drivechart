@@ -142,5 +142,16 @@ export default tseslint.config(
         disallowSharedClientImports: false,
       }),
     },
+  },
+
+  // Scripts package config.
+  {
+    files: ['packages/scripts/**/*.ts'],
+    languageOptions: SHARED_LANGUAGE_OPTIONS,
+    rules: {
+      ...makeSharedRules({
+        disallowSharedClientImports: true,
+      }),
+    },
   }
 );

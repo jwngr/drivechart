@@ -10,3 +10,6 @@ export type AsyncConsumer<T> = (arg: T) => Promise<void>;
 
 /** Unsubscribe function from a listener or subscription. */
 export type Unsubscribe = Task;
+
+/** Strongly-typed type for a UUID. Prefer this over plain strings. */
+export type UUID = string & {readonly __brand: 'UUIDBrand'};
