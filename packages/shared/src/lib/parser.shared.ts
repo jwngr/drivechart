@@ -10,11 +10,15 @@ export function parseZodResult<T>(zodSchema: ZodSchema<T>, value: unknown): Resu
   const zodResult = zodSchema.safeParse(value);
 
   if (!zodResult.success) {
-    const keysWithErrors = Object.keys(zodResult.error.format()).filter((key) => key !== '_errors');
-    const errorMessage = keysWithErrors
-      .map((key, i) => {
-        const errors = zodResult.error.issues[i].message;
-        return `${key} (${errors})`;
+    const formattedError = zodResult.error.format();
+    const errorMessage = Object.entries(formattedError)
+      .filter(([key]) => key !== '_errors')
+      .map(([key, value]) => {
+        if (value && '_errors' in value) {
+          const errors = value._errors.join(', ');
+          return `${key} (${errors})`;
+        }
+        return `${key} (${value})`;
       })
       .join(', ');
     return makeErrorResult(

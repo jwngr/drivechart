@@ -19,5 +19,5 @@ const plays = playsResult.value;
 logger.log(`Found ${plays.length} plays for ND game`);
 
 plays.forEach((play, i) => {
-  logger.log(`${i++} - ${JSON.stringify(play.playId)} (${play.type})`);
+  logger.log(`PLAY #${i + 1}: ${JSON.stringify(play.playId)} (${play.type})`);
 });
