@@ -1,6 +1,6 @@
+import {prefixError} from '@shared/lib/errorUtils.shared';
 import {logger} from '@shared/services/logger.shared';
-
-import {cfbdService} from '../services/cfbd.scripts';
+import {cfbdService} from '@src/services/cfbd.scripts';
 
 const playsResult = await cfbdService.getPlaysByTeam({
   seasonType: 'regular',
@@ -10,7 +10,7 @@ const playsResult = await cfbdService.getPlaysByTeam({
 });
 
 if (!playsResult.success) {
-  console.error('Error fetching plays for ND:', playsResult.error);
+  logger.error(prefixError(playsResult.error, 'Error fetching plays for ND game'));
   process.exit(1);
 }
 
@@ -18,7 +18,6 @@ const plays = playsResult.value;
 
 logger.log(`Found ${plays.length} plays for ND game`);
 
-let i = 0;
-plays.forEach((play) => {
-  console.log(`${i++} - ${JSON.stringify(play)}`);
+plays.forEach((play, i) => {
+  logger.log(`${i++} - ${JSON.stringify(play.playId)} (${play.type})`);
 });

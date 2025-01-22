@@ -40,16 +40,11 @@
     "test:pwa": "yarn workspace @drivechart/pwa test",
     "test:scripts": "yarn workspace @drivechart/scripts test"
   },
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "zod": "^3.24.1"
-  },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.14",
-    "@types/lodash": "^4.17.14",
     "@types/node": "^22.10.5",
     "eslint": "^9.18.0",
     "eslint-plugin-react": "^7.37.4",

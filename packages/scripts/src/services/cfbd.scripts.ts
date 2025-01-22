@@ -1,7 +1,10 @@
-import {prefixResultIfError} from '@shared/lib/errorUtils.shared';
+import {prefixErrorResult, syncTryAll} from '@shared/lib/errorUtils.shared';
 import {requestGet} from '@shared/lib/requests.shared';
-import {Play} from '@shared/types/plays.types';
-import {AsyncResult} from '@shared/types/result.types';
+import {filterNull} from '@shared/lib/utils.shared';
+import {parseCfbdPlay, parsePlayFromCfbdPlay} from '@shared/schemas/cfdb.schema';
+import type {Play} from '@shared/types/plays.types';
+import type {AsyncResult} from '@shared/types/result.types';
+import {makeErrorResult, makeSuccessResult} from '@shared/types/result.types';
 import dotenv from 'dotenv';
 
 // Load environment variables from .env file.
@@ -11,12 +14,6 @@ const CFBD_API_HOST = 'https://api.collegefootballdata.com';
 
 class CFBDService {
   constructor(private readonly apiKey: string) {}
-
-  public async getPlayByPlay(gameId: string): AsyncResult<readonly Play[]> {
-    const url = `${CFBD_API_HOST}/plays?gameId=${gameId}`;
-    const response = await requestGet<readonly Play[]>(url);
-    return prefixResultIfError(response, 'Error fetching play by play from CFBD');
-  }
 
   public async getPlaysByTeam(args: {
     readonly seasonType: 'regular' | 'postseason' | 'both';
@@ -38,11 +35,41 @@ class CFBDService {
         team: team,
       },
     });
-    return prefixResultIfError(response, 'Error fetching plays by team from CFBD');
+
+    if (!response.success) {
+      return prefixErrorResult(response, 'Error fetching plays by team from CFBD');
+    }
+
+    const rawPlayResponses = response.value;
+    if (!Array.isArray(rawPlayResponses)) {
+      return makeErrorResult(new Error('Play by play response is not an array'));
+    }
+
+    const parseCfbdPlayResults = rawPlayResponses.map(parseCfbdPlay);
+    const parsedCfbdPlayResponsesResult = syncTryAll(parseCfbdPlayResults);
+    if (!parsedCfbdPlayResponsesResult.success) {
+      return prefixErrorResult(
+        parsedCfbdPlayResponsesResult,
+        'Error parsing raw response from CFBD'
+      );
+    }
+
+    const parsedCfbdPlayResponses = parsedCfbdPlayResponsesResult.value;
+
+    const parsePlayResults = parsedCfbdPlayResponses.map(parsePlayFromCfbdPlay);
+    const parsedPlayResponsesResult = syncTryAll(parsePlayResults);
+    if (!parsedPlayResponsesResult.success) {
+      return prefixErrorResult(parsedPlayResponsesResult, 'Error parsing plays from CFBD');
+    }
+
+    const parsedPlays = filterNull(parsedPlayResponsesResult.value);
+    return makeSuccessResult(parsedPlays);
   }
 }
 
 if (!process.env.COLLEGE_FOOTBALL_DATA_API_KEY) {
+  // Throw since this is a critical, unrecoverable error.
+  // eslint-disable-next-line no-restricted-syntax
   throw new Error('COLLEGE_FOOTBALL_DATA_API_KEY must be set in the .env file');
 }
 

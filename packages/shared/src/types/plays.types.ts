@@ -1,7 +1,11 @@
+/** Strongly-typed type for a play's unique identifier. Prefer this over plain strings. */
+export type PlayId = string & {readonly __brand: 'PlayIdBrand'};
+
 export enum PlayType {
   Run = 'RUN',
   Pass = 'PASS',
   Punt = 'PUNT',
+  Penalty = 'PENALTY',
   Kickoff = 'KICKOFF',
   FieldGoalAttempt = 'FIELD_GOAL_ATTEMPT',
   ExtraPointAttempt = 'EXTRA_POINT_ATTEMPT',
@@ -20,7 +24,7 @@ export interface GameClock {
 // interface PlayResult {}
 
 interface BasePlay {
-  readonly playId: string;
+  readonly playId: PlayId;
   readonly clock: GameClock;
 
   /** Down number. `null` if not applicable (e.g., kickoff). */
@@ -69,7 +73,7 @@ export enum PenaltyType {
 }
 
 /** Additional context for a play with a penalty. */
-interface PenaltyContext {
+export interface PenaltyContext {
   readonly type: PenaltyType;
   /** Team committing the penalty. */
   readonly team: string;
@@ -133,6 +137,14 @@ interface PassPlay extends BasePlay {
   readonly isInterception: boolean;
   /** True if a fumble occurred after the catch. */
   readonly isFumbleAfterCatch: boolean;
+}
+
+interface PenaltyPlay extends BasePlay {
+  readonly type: PlayType.Penalty;
+  /** Player committing the penalty. */
+  readonly player: string;
+  /** Yardage of the penalty. */
+  readonly yardage: number;
 }
 
 interface KickoffPlay extends BasePlay {
@@ -223,4 +235,5 @@ export type Play =
   | FieldGoalPlay
   | ExtraPointPlay
   | TwoPointConversionPlay
-  | PuntPlay;
+  | PuntPlay
+  | PenaltyPlay;
