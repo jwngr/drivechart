@@ -107,6 +107,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
 
     case 'PASS':
     case 'PASS RECEPTION':
+    case 'PASSING TOUCHDOWN':
     case 'PASS INCOMPLETION':
     case 'PASS INTERCEPTION RETURN':
     case 'SACK':
