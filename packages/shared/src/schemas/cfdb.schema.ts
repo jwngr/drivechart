@@ -1,8 +1,8 @@
 import {prefixErrorResult, prefixResultIfError} from '@shared/lib/errorUtils.shared';
 import {parseZodResult} from '@shared/lib/parser.shared';
 import {logger} from '@shared/services/logger.shared';
-import type {PenaltyContext, Play, PlayId} from '@shared/types/plays.types';
-import {PlayType, ScoringType} from '@shared/types/plays.types';
+import type {GameEvent, GameEventId, PenaltyContext} from '@shared/types/gameEvents.types';
+import {GameEventType, ScoringType} from '@shared/types/gameEvents.types';
 import {makeErrorResult, makeSuccessResult, type Result} from '@shared/types/result.types';
 import {z} from 'zod';
 
@@ -50,30 +50,32 @@ export const parseCfbdPlay = (play: unknown): Result<CfbdPlay> => {
   return prefixResultIfError(parseResult, 'Failed to parse CFBD play');
 };
 
-/** Parses a play ID from a CFBD response. */
-function parseCfbdPlayId(unknownPlayId: unknown): Result<PlayId> {
+/** Parses a {@link GameEventId} from an unknown value. */
+function parseCfbdPlayId(unknownPlayId: unknown): Result<GameEventId> {
   const parseResult = parseZodResult(cfbdPlayIdSchema, unknownPlayId);
   if (!parseResult.success) {
-    return prefixErrorResult(parseResult, 'Error parsing PlayId');
+    return prefixErrorResult(parseResult, 'Error parsing GameEventId');
   }
-  return makeSuccessResult(parseResult.value as PlayId);
+  return makeSuccessResult(parseResult.value as GameEventId);
 }
 
-export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
-  const playIdResult = parseCfbdPlayId(play.id);
-  if (!playIdResult.success) return playIdResult;
+export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | null> {
+  const gameEventIdResult = parseCfbdPlayId(play.id);
+  if (!gameEventIdResult.success) return gameEventIdResult;
 
-  // Parse base play information
+  // Parse base game event information.
   const basePlay = {
-    playId: playIdResult.value,
+    gameEventId: gameEventIdResult.value,
     clock: {
       quarter: play.period,
       secondsRemaining: play.clock.minutes * 60 + play.clock.seconds,
     },
-    down: play.down as 1 | 2 | 3 | 4 | null,
-    distanceToFirstDown: play.distance,
-    yardLine: play.yard_line,
-    possessionTeam: play.offense,
+    fieldPosition: {
+      yardLine: play.yard_line,
+      down: play.down as 1 | 2 | 3 | 4 | null,
+      distanceToFirstDown: play.distance,
+      possessionTeam: play.offense,
+    },
     turnover: null, // Will need to parse play_text to determine this
     penalties: [] as PenaltyContext[], // Will need to parse play_text to determine this
     scoring: play.scoring
@@ -99,7 +101,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'RUSHING TOUCHDOWN':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.Run,
+        type: GameEventType.Rush,
         rusher: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) rush/i),
         yardsGained: play.yards_gained,
         isFumble: playText.includes('FUMBLE'),
@@ -113,7 +115,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'SACK':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.Pass,
+        type: GameEventType.PassAttempt,
         passer: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) pass/i),
         receiver: extractPlayerName(/(?:complete|incomplete) to ([A-Z]+(?:\s[A-Z]+)*)/i),
         isComplete: !playText.includes('INCOMPLETE'),
@@ -125,7 +127,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'PUNT':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.Punt,
+        type: GameEventType.Punt,
         punter: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) punt/i),
         yardLine: play.yard_line,
         returnYards: 0, // Would need to parse play text for this
@@ -135,9 +137,10 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
       });
 
     case 'KICKOFF':
+    case 'KICKOFF RETURN (OFFENSE)':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.Kickoff,
+        type: GameEventType.Kickoff,
         kicker: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) kickoff/i),
         yardLine: play.yard_line,
         returnYards: 0, // Would need to parse play text for this
@@ -149,7 +152,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'FIELD GOAL GOOD':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.FieldGoalAttempt,
+        type: GameEventType.FieldGoalAttempt,
         kicker: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) field goal/i),
         yardLine: play.yard_line,
         isGood: !playText.includes('NO GOOD') && !playText.includes('MISSED'),
@@ -162,7 +165,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'EXTRA POINT':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.ExtraPointAttempt,
+        type: GameEventType.ExtraPointAttempt,
         kicker: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) extra point/i),
         isGood: !playText.includes('NO GOOD') && !playText.includes('MISSED'),
         isBlocked: playText.includes('BLOCKED'),
@@ -174,7 +177,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'TWO POINT CONVERSION':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.TwoPointConversionAttempt,
+        type: GameEventType.TwoPointConversionAttempt,
         isSuccessful: playText.includes('SUCCESS'),
         isInterception: playText.includes('INTERCEPTED'),
         isFumble: playText.includes('FUMBLE'),
@@ -186,7 +189,7 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'PENALTY':
       return makeSuccessResult({
         ...basePlay,
-        type: PlayType.Penalty,
+        type: GameEventType.Penalty,
         player: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) penalty/i),
         yardage: play.yards_gained,
       });
@@ -194,13 +197,23 @@ export function parsePlayFromCfbdPlay(play: CfbdPlay): Result<Play | null> {
     case 'END PERIOD':
     case 'END OF HALF':
     case 'END OF GAME':
+      return makeSuccessResult({
+        ...basePlay,
+        type: GameEventType.EndOfPeriod,
+      });
+
     case 'TIMEOUT':
+      return makeSuccessResult({
+        ...basePlay,
+        type: GameEventType.Timeout,
+        team: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) timeout/i),
+      });
+
     case 'FUMBLE RECOVERY (OWN)':
-    case 'KICKOFF RETURN (OFFENSE)':
       logger.warn('Skipping play:', play);
       return makeSuccessResult(null);
 
     default:
-      return makeErrorResult(new Error(`Unknown play type: ${playTypeText}`));
+      return makeErrorResult(new Error(`Unknown game event type from CFBD: ${playTypeText}`));
   }
 }

@@ -1,15 +1,26 @@
-/** Strongly-typed type for a play's unique identifier. Prefer this over plain strings. */
-export type PlayId = string & {readonly __brand: 'PlayIdBrand'};
+/** Strongly-typed type for a game event's unique identifier. Prefer this over plain strings. */
+export type GameEventId = string & {readonly __brand: 'GameEventIdBrand'};
 
-export enum PlayType {
-  Run = 'RUN',
-  Pass = 'PASS',
-  Punt = 'PUNT',
-  Penalty = 'PENALTY',
+export enum GameEventType {
+  // Standard plays.
+  Rush = 'RUSH',
+  PassAttempt = 'PASS_ATTEMPT',
+
+  // Kicking plays.
   Kickoff = 'KICKOFF',
+  Punt = 'PUNT',
   FieldGoalAttempt = 'FIELD_GOAL_ATTEMPT',
   ExtraPointAttempt = 'EXTRA_POINT_ATTEMPT',
+
+  // Other special plays.
   TwoPointConversionAttempt = 'TWO_POINT_CONVERSION_ATTEMPT',
+  // TODO: Do I need this one?
+  // FumbleRecovery = 'FUMBLE_RECOVERY',
+
+  // Non-play events.
+  Penalty = 'PENALTY',
+  Timeout = 'TIMEOUT',
+  EndOfPeriod = 'END_OF_PERIOD',
 }
 
 export interface GameClock {
@@ -20,26 +31,32 @@ export interface GameClock {
   readonly secondsRemaining: number;
 }
 
-// TODO: Consider adding a PlayResult type.
-// interface PlayResult {}
-
-interface BasePlay {
-  readonly playId: PlayId;
-  readonly clock: GameClock;
-
+export interface DownAndDistance {
   /** Down number. `null` if not applicable (e.g., kickoff). */
   readonly down: 1 | 2 | 3 | 4 | null;
   /** Distance to first down. `null` if not applicable (e.g., kickoffs or goal-to-go situations). */
   readonly distanceToFirstDown: number | null;
+  /** True if the play is in the red zone (7-10 yards from the end zone). */
+  readonly isRedZone: boolean;
+}
 
-  /** Yard line on the field, 0-100 (50 is midfield). */
+export interface FieldPosition {
+  /** Down number. `null` if not applicable (e.g., kickoff). */
+  readonly down: 1 | 2 | 3 | 4 | null;
+  /** Distance to first down. `null` if not applicable (e.g., kickoffs or goal-to-go situations). */
+  readonly distanceToFirstDown: number | null;
+  /** Yard line on the field, 0 is the offensive team's goal line. 100 is the defensive team's goal
+   * line. */
   readonly yardLine: number;
   /** Name/abbreviation of the team with possession. */
   readonly possessionTeam: string;
-  /** True if the play results in a touchdown. */
-  readonly isTouchdown?: boolean;
-  /** True if the play results in a safety. */
-  readonly isSafety?: boolean;
+}
+
+interface BaseGameEvent {
+  readonly gameEventId: GameEventId;
+  readonly clock: GameClock;
+  /** Down, distance, field position, and possession at the start of the play. */
+  readonly fieldPosition: FieldPosition;
   /** Context for turnover. */
   readonly turnover: TurnoverContext | null;
   /** Penalties (if any). */
@@ -84,7 +101,7 @@ export interface PenaltyContext {
   /** True if penalty was declined. */
   readonly isDeclined: boolean;
   /** True if penalty occurred during the play. */
-  readonly occurredOnPlay: boolean;
+  readonly occurredDuringPlay: boolean;
 }
 
 export enum ScoringType {
@@ -113,8 +130,8 @@ interface ScoringContext {
   readonly points: number;
 }
 
-interface RunPlay extends BasePlay {
-  readonly type: PlayType.Run;
+interface RushGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.Rush;
   /** Player carrying the ball. */
   readonly rusher: string;
   /** Yards gained on the run. */
@@ -123,8 +140,8 @@ interface RunPlay extends BasePlay {
   readonly isFumble: boolean;
 }
 
-interface PassPlay extends BasePlay {
-  readonly type: PlayType.Pass;
+interface PassAttemptGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.PassAttempt;
   /** Player attempting the pass. */
   readonly passer: string;
   /** Player targeted / catching the pass. */
@@ -139,16 +156,16 @@ interface PassPlay extends BasePlay {
   readonly isFumbleAfterCatch: boolean;
 }
 
-interface PenaltyPlay extends BasePlay {
-  readonly type: PlayType.Penalty;
+interface PenaltyGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.Penalty;
   /** Player committing the penalty. */
   readonly player: string;
   /** Yardage of the penalty. */
   readonly yardage: number;
 }
 
-interface KickoffPlay extends BasePlay {
-  readonly type: PlayType.Kickoff;
+interface KickoffGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.Kickoff;
   /** Player kicking off. */
   readonly kicker: string;
   /** Yard line where the ball was kicked. */
@@ -161,8 +178,8 @@ interface KickoffPlay extends BasePlay {
   readonly isOutOfBounds: boolean;
 }
 
-interface FieldGoalPlay extends BasePlay {
-  readonly type: PlayType.FieldGoalAttempt;
+interface FieldGoalAttemptGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.FieldGoalAttempt;
   /** Player attempting the field goal. */
   readonly kicker: string;
   /** Yard line where the kick was attempted. */
@@ -179,8 +196,8 @@ interface FieldGoalPlay extends BasePlay {
   readonly returnYards: number;
 }
 
-interface ExtraPointPlay extends BasePlay {
-  readonly type: PlayType.ExtraPointAttempt;
+interface ExtraPointAttemptGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.ExtraPointAttempt;
   /** Player attempting the extra point. */
   readonly kicker: string;
   /** True if the extra point was successful. */
@@ -195,8 +212,8 @@ interface ExtraPointPlay extends BasePlay {
   readonly returnYards: number;
 }
 
-interface TwoPointConversionPlay extends BasePlay {
-  readonly type: PlayType.TwoPointConversionAttempt;
+interface TwoPointConversionAttemptGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.TwoPointConversionAttempt;
   /** True if the conversion was successful. */
   readonly isSuccessful: boolean;
   /** True if intercepted. */
@@ -211,9 +228,8 @@ interface TwoPointConversionPlay extends BasePlay {
   readonly isReturnTouchdown: boolean;
 }
 
-// Punt Play
-interface PuntPlay extends BasePlay {
-  readonly type: PlayType.Punt;
+interface PuntGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.Punt;
   /** Player punting the ball. */
   readonly punter: string;
   /** Yard line where the punt occurred. */
@@ -228,12 +244,24 @@ interface PuntPlay extends BasePlay {
   readonly returnTeam: string;
 }
 
-export type Play =
-  | RunPlay
-  | PassPlay
-  | KickoffPlay
-  | FieldGoalPlay
-  | ExtraPointPlay
-  | TwoPointConversionPlay
-  | PuntPlay
-  | PenaltyPlay;
+interface TimeoutGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.Timeout;
+  /** Team that called the timeout. */
+  readonly team: string;
+}
+
+interface PeriodEndGameEvent extends BaseGameEvent {
+  readonly type: GameEventType.EndOfPeriod;
+}
+
+export type GameEvent =
+  | RushGameEvent
+  | PassAttemptGameEvent
+  | KickoffGameEvent
+  | PuntGameEvent
+  | FieldGoalAttemptGameEvent
+  | ExtraPointAttemptGameEvent
+  | TwoPointConversionAttemptGameEvent
+  | PenaltyGameEvent
+  | TimeoutGameEvent
+  | PeriodEndGameEvent;
