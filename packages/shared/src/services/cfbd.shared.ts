@@ -1,8 +1,8 @@
 import {prefixErrorResult, syncTryAll} from '@shared/lib/errorUtils.shared';
 import {requestGet} from '@shared/lib/requests.shared';
 import {filterNull} from '@shared/lib/utils.shared';
-import {parseCfbdPlay, parsePlayFromCfbdPlay} from '@shared/schemas/cfdb.schema';
-import type {Play} from '@shared/types/plays.types';
+import {parseCfbdPlay, parseGameEventFromCfbdPlay} from '@shared/schemas/cfdb.schema';
+import type {GameEvent} from '@shared/types/gameEvents.types';
 import type {AsyncResult} from '@shared/types/result.types';
 import {makeErrorResult, makeSuccessResult} from '@shared/types/result.types';
 
@@ -11,15 +11,15 @@ const CFBD_API_HOST = 'https://api.collegefootballdata.com';
 export class CFBDService {
   constructor(private readonly apiKey: string) {}
 
-  public async getPlaysByTeam(args: {
+  public async getGameEventsByTeam(args: {
     readonly seasonType: 'regular' | 'postseason' | 'both';
     readonly year: number;
     readonly week: number;
     readonly team: string;
-  }): AsyncResult<readonly Play[]> {
+  }): AsyncResult<readonly GameEvent[]> {
     const {seasonType, year, week, team} = args;
     const url = `${CFBD_API_HOST}/plays`;
-    const response = await requestGet<readonly Play[]>(url, {
+    const response = await requestGet<readonly GameEvent[]>(url, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${this.apiKey}`,
@@ -33,12 +33,12 @@ export class CFBDService {
     });
 
     if (!response.success) {
-      return prefixErrorResult(response, 'Error fetching plays by team from CFBD');
+      return prefixErrorResult(response, 'Error fetching play-by-play from CFBD');
     }
 
     const rawPlayResponses = response.value;
     if (!Array.isArray(rawPlayResponses)) {
-      return makeErrorResult(new Error('Play by play response is not an array'));
+      return makeErrorResult(new Error('Play-by-play response from CFBD is not an array'));
     }
 
     const parseCfbdPlayResults = rawPlayResponses.map(parseCfbdPlay);
@@ -46,19 +46,22 @@ export class CFBDService {
     if (!parsedCfbdPlayResponsesResult.success) {
       return prefixErrorResult(
         parsedCfbdPlayResponsesResult,
-        'Error parsing raw response from CFBD'
+        'Error parsing raw play-by-play response from CFBD'
       );
     }
 
     const parsedCfbdPlayResponses = parsedCfbdPlayResponsesResult.value;
 
-    const parsePlayResults = parsedCfbdPlayResponses.map(parsePlayFromCfbdPlay);
-    const parsedPlayResponsesResult = syncTryAll(parsePlayResults);
-    if (!parsedPlayResponsesResult.success) {
-      return prefixErrorResult(parsedPlayResponsesResult, 'Error parsing plays from CFBD');
+    const parsePlayResults = parsedCfbdPlayResponses.map(parseGameEventFromCfbdPlay);
+    const parsedGameEventResponsesResult = syncTryAll(parsePlayResults);
+    if (!parsedGameEventResponsesResult.success) {
+      return prefixErrorResult(
+        parsedGameEventResponsesResult,
+        'Play-by-play from CFBD has unexpected values'
+      );
     }
 
-    const parsedPlays = filterNull(parsedPlayResponsesResult.value);
-    return makeSuccessResult(parsedPlays);
+    const parsedGameEvents = filterNull(parsedGameEventResponsesResult.value);
+    return makeSuccessResult(parsedGameEvents);
   }
 }
