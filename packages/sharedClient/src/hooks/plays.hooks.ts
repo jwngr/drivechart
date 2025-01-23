@@ -1,6 +1,6 @@
 import type {Play} from '@shared/types/plays.types';
 import {playsService} from '@sharedClient/services/plays.client';
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 interface UsePlaysState {
   readonly plays: readonly Play[] | null;
@@ -15,11 +15,15 @@ const INITIAL_USE_PLAYS_STATE: UsePlaysState = {
 };
 
 export function usePlays(): UsePlaysState {
+  const isMounted = useRef(true);
   const [playsState, setPlaysState] = useState(INITIAL_USE_PLAYS_STATE);
 
   useEffect(() => {
     const go = async () => {
       const playsResult = await playsService.getForGame();
+
+      if (!isMounted.current) return;
+
       if (playsResult.success) {
         setPlaysState({
           plays: playsResult.value,
@@ -34,7 +38,12 @@ export function usePlays(): UsePlaysState {
         });
       }
     };
+
     void go();
+
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   return playsState;
