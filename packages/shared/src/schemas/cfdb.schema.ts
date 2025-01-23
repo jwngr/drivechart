@@ -1,10 +1,74 @@
 import {prefixErrorResult, prefixResultIfError} from '@shared/lib/errorUtils.shared';
 import {parseZodResult} from '@shared/lib/parser.shared';
+import {assertNever} from '@shared/lib/utils.shared';
 import {logger} from '@shared/services/logger.shared';
 import type {GameEvent, GameEventId, PenaltyContext} from '@shared/types/gameEvents.types';
 import {GameEventType, ScoringType} from '@shared/types/gameEvents.types';
-import {makeErrorResult, makeSuccessResult, type Result} from '@shared/types/result.types';
+import {makeSuccessResult, type Result} from '@shared/types/result.types';
 import {z} from 'zod';
+
+enum CfbdPlayType {
+  Rush = 'Rush',
+  PassReception = 'Pass Reception',
+  PassIncompletion = 'Pass Incompletion',
+  Kickoff = 'Kickoff',
+  Punt = 'Punt',
+  Penalty = 'Penalty',
+  Timeout = 'Timeout',
+  Sack = 'Sack',
+  RushingTouchdown = 'Rushing Touchdown',
+  PassingTouchdown = 'Passing Touchdown',
+  EndPeriod = 'End Period',
+  FieldGoalGood = 'Field Goal Good',
+  PassInterceptionReturn = 'Pass Interception Return',
+  EndOfHalf = 'End of Half',
+  FumbleRecoveryOwn = 'Fumble Recovery (Own)',
+  FumbleRecoveryOpponent = 'Fumble Recovery (Opponent)',
+  FieldGoalMissed = 'Field Goal Missed',
+  KickoffReturnOffense = 'Kickoff Return (Offense)',
+  InterceptionReturnTouchdown = 'Interception Return Touchdown',
+  BlockedFieldGoal = 'Blocked Field Goal',
+  BlockedPunt = 'Blocked Punt',
+  Safety = 'Safety',
+  KickoffReturnTouchdown = 'Kickoff Return Touchdown',
+  FumbleReturnTouchdown = 'Fumble Return Touchdown',
+  Uncategorized = 'Uncategorized',
+  Defensive2ptConversion = 'Defensive 2pt Conversion',
+  BlockedPuntTouchdown = 'Blocked Punt Touchdown',
+  MissedFieldGoalReturn = 'Missed Field Goal Return',
+  PuntReturnTouchdown = 'Punt Return Touchdown',
+  Placeholder = 'placeholder',
+  MissedFieldGoalReturnTouchdown = 'Missed Field Goal Return Touchdown',
+  TwoPointRush = 'Two Point Rush',
+  EndOfGame = 'End of Game',
+  Interception = 'Interception',
+  BlockedFieldGoalTouchdown = 'Blocked Field Goal Touchdown',
+  Pass = 'Pass',
+  TwoPtConversion = '2pt Conversion',
+  ExtraPointGood = 'Extra Point Good',
+  ExtraPointMissed = 'Extra Point Missed',
+  PassCompletion = 'Pass Completion',
+  PassInterception = 'Pass Interception',
+  Offensive1ptSafety = 'Offensive 1pt Safety',
+  BlockedPAT = 'Blocked PAT',
+  KickoffReturnDefense = 'Kickoff Return (Defense)',
+  PuntReturn = 'Punt Return',
+  TwoPointPass = 'Two Point Pass',
+  EndOfRegulation = 'End of Regulation',
+  StartOfPeriod = 'Start of Period',
+}
+
+export function isKickoffCfbdPlayType(playType: CfbdPlayType): boolean {
+  switch (playType) {
+    case CfbdPlayType.Kickoff:
+    case CfbdPlayType.KickoffReturnOffense:
+    case CfbdPlayType.KickoffReturnDefense:
+    case CfbdPlayType.KickoffReturnTouchdown:
+      return true;
+    default:
+      return false;
+  }
+}
 
 const cfbdPlayIdSchema = z.string();
 
@@ -37,7 +101,7 @@ export const cfbdPlaySchema = z.object({
   distance: z.number(),
   yards_gained: z.number(),
   scoring: z.boolean(),
-  play_type: z.string(),
+  play_type: z.nativeEnum(CfbdPlayType),
   play_text: z.string(),
   ppa: z.string().nullable(),
   wallclock: z.string(),
@@ -63,6 +127,8 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
   const gameEventIdResult = parseCfbdPlayId(play.id);
   if (!gameEventIdResult.success) return gameEventIdResult;
 
+  const isKickoff = isKickoffCfbdPlayType(play.play_type);
+
   // Parse base game event information.
   const basePlay = {
     gameEventId: gameEventIdResult.value,
@@ -71,10 +137,10 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
       secondsRemaining: play.clock.minutes * 60 + play.clock.seconds,
     },
     fieldPosition: {
-      yardLine: play.yard_line,
-      down: play.down as 1 | 2 | 3 | 4 | null,
-      distanceToFirstDown: play.distance,
       possessionTeam: play.offense,
+      yardLine: play.yard_line,
+      down: isKickoff ? null : (play.down as 1 | 2 | 3 | 4),
+      distanceToFirstDown: isKickoff ? null : play.distance,
     },
     turnover: null, // Will need to parse play_text to determine this
     penalties: [] as PenaltyContext[], // Will need to parse play_text to determine this
@@ -87,7 +153,6 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
   } as const;
 
   // Normalize play type text for matching
-  const playTypeText = play.play_type.toUpperCase();
   const playText = play.play_text.toUpperCase();
 
   // Helper to extract player name from play text
@@ -96,9 +161,9 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
     return match?.[1] ?? 'Unknown Player';
   }
 
-  switch (playTypeText) {
-    case 'RUSH':
-    case 'RUSHING TOUCHDOWN':
+  switch (play.play_type) {
+    case CfbdPlayType.Rush:
+    case CfbdPlayType.RushingTouchdown:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.Rush,
@@ -107,12 +172,16 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         isFumble: playText.includes('FUMBLE'),
       });
 
-    case 'PASS':
-    case 'PASS RECEPTION':
-    case 'PASSING TOUCHDOWN':
-    case 'PASS INCOMPLETION':
-    case 'PASS INTERCEPTION RETURN':
-    case 'SACK':
+    case CfbdPlayType.Pass:
+    case CfbdPlayType.PassCompletion:
+    case CfbdPlayType.PassReception:
+    case CfbdPlayType.PassIncompletion:
+    case CfbdPlayType.PassingTouchdown:
+    case CfbdPlayType.Interception:
+    case CfbdPlayType.PassInterception:
+    case CfbdPlayType.PassInterceptionReturn:
+    case CfbdPlayType.InterceptionReturnTouchdown:
+    case CfbdPlayType.Sack:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.PassAttempt,
@@ -124,7 +193,11 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         isFumbleAfterCatch: playText.includes('FUMBLE'),
       });
 
-    case 'PUNT':
+    case CfbdPlayType.Punt:
+    case CfbdPlayType.PuntReturn:
+    case CfbdPlayType.BlockedPunt:
+    case CfbdPlayType.BlockedPuntTouchdown:
+    case CfbdPlayType.PuntReturnTouchdown:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.Punt,
@@ -136,8 +209,10 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         returnTeam: play.defense,
       });
 
-    case 'KICKOFF':
-    case 'KICKOFF RETURN (OFFENSE)':
+    case CfbdPlayType.Kickoff:
+    case CfbdPlayType.KickoffReturnOffense:
+    case CfbdPlayType.KickoffReturnDefense:
+    case CfbdPlayType.KickoffReturnTouchdown:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.Kickoff,
@@ -148,8 +223,12 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         isOutOfBounds: playText.includes('OUT OF BOUNDS'),
       });
 
-    case 'FIELD GOAL':
-    case 'FIELD GOAL GOOD':
+    case CfbdPlayType.FieldGoalGood:
+    case CfbdPlayType.FieldGoalMissed:
+    case CfbdPlayType.BlockedFieldGoal:
+    case CfbdPlayType.MissedFieldGoalReturn:
+    case CfbdPlayType.BlockedFieldGoalTouchdown:
+    case CfbdPlayType.MissedFieldGoalReturnTouchdown:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.FieldGoalAttempt,
@@ -162,7 +241,9 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         returnYards: 0, // Would need to parse play text for this
       });
 
-    case 'EXTRA POINT':
+    case CfbdPlayType.ExtraPointGood:
+    case CfbdPlayType.ExtraPointMissed:
+    case CfbdPlayType.BlockedPAT:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.ExtraPointAttempt,
@@ -174,7 +255,10 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         returnYards: 0, // Would need to parse play text for this
       });
 
-    case 'TWO POINT CONVERSION':
+    case CfbdPlayType.TwoPtConversion:
+    case CfbdPlayType.TwoPointRush:
+    case CfbdPlayType.TwoPointPass:
+    case CfbdPlayType.Defensive2ptConversion:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.TwoPointConversionAttempt,
@@ -186,7 +270,7 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         isReturnTouchdown: playText.includes('TOUCHDOWN'),
       });
 
-    case 'PENALTY':
+    case CfbdPlayType.Penalty:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.Penalty,
@@ -194,26 +278,37 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
         yardage: play.yards_gained,
       });
 
-    case 'END PERIOD':
-    case 'END OF HALF':
-    case 'END OF GAME':
+    case CfbdPlayType.StartOfPeriod:
+    case CfbdPlayType.EndPeriod:
+    case CfbdPlayType.EndOfHalf:
+    case CfbdPlayType.EndOfRegulation:
+    case CfbdPlayType.EndOfGame:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.EndOfPeriod,
       });
 
-    case 'TIMEOUT':
+    case CfbdPlayType.Timeout:
       return makeSuccessResult({
         ...basePlay,
         type: GameEventType.Timeout,
         team: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) timeout/i),
       });
 
-    case 'FUMBLE RECOVERY (OWN)':
+    case CfbdPlayType.FumbleRecoveryOwn:
+      logger.warn('Skipping play:', play);
+      return makeSuccessResult(null);
+
+    case CfbdPlayType.FumbleRecoveryOpponent:
+    case CfbdPlayType.FumbleReturnTouchdown:
+    case CfbdPlayType.Safety:
+    case CfbdPlayType.Offensive1ptSafety:
+    case CfbdPlayType.Placeholder:
+    case CfbdPlayType.Uncategorized:
       logger.warn('Skipping play:', play);
       return makeSuccessResult(null);
 
     default:
-      return makeErrorResult(new Error(`Unknown game event type from CFBD: ${playTypeText}`));
+      assertNever(play.play_type);
   }
 }
