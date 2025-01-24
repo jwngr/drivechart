@@ -16,8 +16,6 @@ if (!gameEventsResult.success) {
 
 const gameEvents = gameEventsResult.value;
 
-logger.log(`Found ${gameEvents.length} game events for ND game`);
-
 // gameEvents.forEach((gameEvent, i) => {
 //   logger.log(`PLAY #${i + 1}: ${JSON.stringify(gameEvent.gameEventId)} (${gameEvent.type})`);
 // });

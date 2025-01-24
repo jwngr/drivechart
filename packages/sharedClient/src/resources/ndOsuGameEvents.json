@@ -1,7 +1,7 @@
 [
   {
     "gameEventId": "401628332101849902",
-    "clock": {"quarter": 1, "secondsRemaining": 900},
+    "clock": {"period": 1, "secondsRemaining": 900},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -20,7 +20,7 @@
   },
   {
     "gameEventId": "401628332101854401",
-    "clock": {"quarter": 1, "secondsRemaining": 895},
+    "clock": {"period": 1, "secondsRemaining": 895},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -40,7 +40,7 @@
   },
   {
     "gameEventId": "401628332101856501",
-    "clock": {"quarter": 1, "secondsRemaining": 874},
+    "clock": {"period": 1, "secondsRemaining": 874},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 40,
@@ -60,7 +60,7 @@
   },
   {
     "gameEventId": "401628332101857901",
-    "clock": {"quarter": 1, "secondsRemaining": 860},
+    "clock": {"period": 1, "secondsRemaining": 860},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 40,
@@ -77,7 +77,7 @@
   },
   {
     "gameEventId": "401628332101864401",
-    "clock": {"quarter": 1, "secondsRemaining": 835},
+    "clock": {"period": 1, "secondsRemaining": 835},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 43,
@@ -93,7 +93,7 @@
   },
   {
     "gameEventId": "401628332101865901",
-    "clock": {"quarter": 1, "secondsRemaining": 820},
+    "clock": {"period": 1, "secondsRemaining": 820},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 48,
@@ -110,7 +110,7 @@
   },
   {
     "gameEventId": "401628332101867601",
-    "clock": {"quarter": 1, "secondsRemaining": 803},
+    "clock": {"period": 1, "secondsRemaining": 803},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 52,
@@ -127,7 +127,7 @@
   },
   {
     "gameEventId": "401628332101874501",
-    "clock": {"quarter": 1, "secondsRemaining": 774},
+    "clock": {"period": 1, "secondsRemaining": 774},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 54,
@@ -143,7 +143,7 @@
   },
   {
     "gameEventId": "401628332101878801",
-    "clock": {"quarter": 1, "secondsRemaining": 731},
+    "clock": {"period": 1, "secondsRemaining": 731},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 58,
@@ -163,7 +163,7 @@
   },
   {
     "gameEventId": "401628332101885901",
-    "clock": {"quarter": 1, "secondsRemaining": 700},
+    "clock": {"period": 1, "secondsRemaining": 700},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 76,
@@ -180,7 +180,7 @@
   },
   {
     "gameEventId": "401628332101888301",
-    "clock": {"quarter": 1, "secondsRemaining": 676},
+    "clock": {"period": 1, "secondsRemaining": 676},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 83,
@@ -200,7 +200,7 @@
   },
   {
     "gameEventId": "401628332101888701",
-    "clock": {"quarter": 1, "secondsRemaining": 672},
+    "clock": {"period": 1, "secondsRemaining": 672},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 83,
@@ -220,7 +220,7 @@
   },
   {
     "gameEventId": "401628332101889201",
-    "clock": {"quarter": 1, "secondsRemaining": 667},
+    "clock": {"period": 1, "secondsRemaining": 667},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 83,
@@ -241,7 +241,7 @@
   },
   {
     "gameEventId": "401628332101889202",
-    "clock": {"quarter": 1, "secondsRemaining": 667},
+    "clock": {"period": 1, "secondsRemaining": 667},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -260,7 +260,7 @@
   },
   {
     "gameEventId": "401628332101889901",
-    "clock": {"quarter": 1, "secondsRemaining": 660},
+    "clock": {"period": 1, "secondsRemaining": 660},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 75,
@@ -280,7 +280,7 @@
   },
   {
     "gameEventId": "401628332101896901",
-    "clock": {"quarter": 1, "secondsRemaining": 630},
+    "clock": {"period": 1, "secondsRemaining": 630},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 72,
@@ -300,7 +300,7 @@
   },
   {
     "gameEventId": "401628332101904202",
-    "clock": {"quarter": 1, "secondsRemaining": 597},
+    "clock": {"period": 1, "secondsRemaining": 597},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 64,
@@ -317,7 +317,7 @@
   },
   {
     "gameEventId": "401628332101914402",
-    "clock": {"quarter": 1, "secondsRemaining": 535},
+    "clock": {"period": 1, "secondsRemaining": 535},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 63,
@@ -337,7 +337,7 @@
   },
   {
     "gameEventId": "401628332101917301",
-    "clock": {"quarter": 1, "secondsRemaining": 506},
+    "clock": {"period": 1, "secondsRemaining": 506},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 59,
@@ -354,7 +354,7 @@
   },
   {
     "gameEventId": "401628332101924201",
-    "clock": {"quarter": 1, "secondsRemaining": 477},
+    "clock": {"period": 1, "secondsRemaining": 477},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 35,
@@ -371,7 +371,7 @@
   },
   {
     "gameEventId": "401628332101927101",
-    "clock": {"quarter": 1, "secondsRemaining": 448},
+    "clock": {"period": 1, "secondsRemaining": 448},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 38,
@@ -391,7 +391,7 @@
   },
   {
     "gameEventId": "401628332101929801",
-    "clock": {"quarter": 1, "secondsRemaining": 421},
+    "clock": {"period": 1, "secondsRemaining": 421},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 38,
@@ -411,7 +411,7 @@
   },
   {
     "gameEventId": "401628332101936001",
-    "clock": {"quarter": 1, "secondsRemaining": 399},
+    "clock": {"period": 1, "secondsRemaining": 399},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 28,
@@ -432,7 +432,7 @@
   },
   {
     "gameEventId": "401628332101936002",
-    "clock": {"quarter": 1, "secondsRemaining": 399},
+    "clock": {"period": 1, "secondsRemaining": 399},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -451,7 +451,7 @@
   },
   {
     "gameEventId": "401628332101936401",
-    "clock": {"quarter": 1, "secondsRemaining": 395},
+    "clock": {"period": 1, "secondsRemaining": 395},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -471,7 +471,7 @@
   },
   {
     "gameEventId": "401628332101937301",
-    "clock": {"quarter": 1, "secondsRemaining": 386},
+    "clock": {"period": 1, "secondsRemaining": 386},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -488,7 +488,7 @@
   },
   {
     "gameEventId": "401628332101945101",
-    "clock": {"quarter": 1, "secondsRemaining": 348},
+    "clock": {"period": 1, "secondsRemaining": 348},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -504,7 +504,7 @@
   },
   {
     "gameEventId": "401628332101946902",
-    "clock": {"quarter": 1, "secondsRemaining": 330},
+    "clock": {"period": 1, "secondsRemaining": 330},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 40,
@@ -521,7 +521,7 @@
   },
   {
     "gameEventId": "401628332101954101",
-    "clock": {"quarter": 1, "secondsRemaining": 298},
+    "clock": {"period": 1, "secondsRemaining": 298},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 45,
@@ -541,7 +541,7 @@
   },
   {
     "gameEventId": "401628332101956301",
-    "clock": {"quarter": 1, "secondsRemaining": 276},
+    "clock": {"period": 1, "secondsRemaining": 276},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 49,
@@ -557,7 +557,7 @@
   },
   {
     "gameEventId": "401628332101959301",
-    "clock": {"quarter": 1, "secondsRemaining": 246},
+    "clock": {"period": 1, "secondsRemaining": 246},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 44,
@@ -577,7 +577,7 @@
   },
   {
     "gameEventId": "401628332101964001",
-    "clock": {"quarter": 1, "secondsRemaining": 239},
+    "clock": {"period": 1, "secondsRemaining": 239},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 44,
@@ -597,7 +597,7 @@
   },
   {
     "gameEventId": "401628332101965801",
-    "clock": {"quarter": 1, "secondsRemaining": 221},
+    "clock": {"period": 1, "secondsRemaining": 221},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 87,
@@ -614,7 +614,7 @@
   },
   {
     "gameEventId": "401628332101968101",
-    "clock": {"quarter": 1, "secondsRemaining": 198},
+    "clock": {"period": 1, "secondsRemaining": 198},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 84,
@@ -634,7 +634,7 @@
   },
   {
     "gameEventId": "401628332101968601",
-    "clock": {"quarter": 1, "secondsRemaining": 193},
+    "clock": {"period": 1, "secondsRemaining": 193},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 84,
@@ -654,7 +654,7 @@
   },
   {
     "gameEventId": "401628332101974001",
-    "clock": {"quarter": 1, "secondsRemaining": 179},
+    "clock": {"period": 1, "secondsRemaining": 179},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 84,
@@ -674,7 +674,7 @@
   },
   {
     "gameEventId": "401628332101975101",
-    "clock": {"quarter": 1, "secondsRemaining": 168},
+    "clock": {"period": 1, "secondsRemaining": 168},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 37,
@@ -691,7 +691,7 @@
   },
   {
     "gameEventId": "401628332101978301",
-    "clock": {"quarter": 1, "secondsRemaining": 136},
+    "clock": {"period": 1, "secondsRemaining": 136},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 41,
@@ -708,7 +708,7 @@
   },
   {
     "gameEventId": "401628332101986101",
-    "clock": {"quarter": 1, "secondsRemaining": 98},
+    "clock": {"period": 1, "secondsRemaining": 98},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 49,
@@ -725,7 +725,7 @@
   },
   {
     "gameEventId": "401628332101996901",
-    "clock": {"quarter": 1, "secondsRemaining": 30},
+    "clock": {"period": 1, "secondsRemaining": 30},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 55,
@@ -742,7 +742,7 @@
   },
   {
     "gameEventId": "401628332101997401",
-    "clock": {"quarter": 1, "secondsRemaining": 25},
+    "clock": {"period": 1, "secondsRemaining": 25},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 61,
@@ -762,7 +762,7 @@
   },
   {
     "gameEventId": "401628332101999902",
-    "clock": {"quarter": 1, "secondsRemaining": 0},
+    "clock": {"period": 1, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 61,
@@ -779,7 +779,7 @@
   },
   {
     "gameEventId": "401628332101999903",
-    "clock": {"quarter": 1, "secondsRemaining": 0},
+    "clock": {"period": 1, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 61,
@@ -793,7 +793,7 @@
   },
   {
     "gameEventId": "401628332102849901",
-    "clock": {"quarter": 2, "secondsRemaining": 900},
+    "clock": {"period": 2, "secondsRemaining": 900},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 68,
@@ -809,7 +809,7 @@
   },
   {
     "gameEventId": "401628332102855801",
-    "clock": {"quarter": 2, "secondsRemaining": 881},
+    "clock": {"period": 2, "secondsRemaining": 881},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 63,
@@ -829,7 +829,7 @@
   },
   {
     "gameEventId": "401628332102858501",
-    "clock": {"quarter": 2, "secondsRemaining": 854},
+    "clock": {"period": 2, "secondsRemaining": 854},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 68,
@@ -850,7 +850,7 @@
   },
   {
     "gameEventId": "401628332102858502",
-    "clock": {"quarter": 2, "secondsRemaining": 854},
+    "clock": {"period": 2, "secondsRemaining": 854},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -869,7 +869,7 @@
   },
   {
     "gameEventId": "401628332102858801",
-    "clock": {"quarter": 2, "secondsRemaining": 851},
+    "clock": {"period": 2, "secondsRemaining": 851},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 75,
@@ -889,7 +889,7 @@
   },
   {
     "gameEventId": "401628332102864401",
-    "clock": {"quarter": 2, "secondsRemaining": 835},
+    "clock": {"period": 2, "secondsRemaining": 835},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 75,
@@ -909,7 +909,7 @@
   },
   {
     "gameEventId": "401628332102867501",
-    "clock": {"quarter": 2, "secondsRemaining": 804},
+    "clock": {"period": 2, "secondsRemaining": 804},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 63,
@@ -929,7 +929,7 @@
   },
   {
     "gameEventId": "401628332102868801",
-    "clock": {"quarter": 2, "secondsRemaining": 791},
+    "clock": {"period": 2, "secondsRemaining": 791},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 49,
@@ -946,7 +946,7 @@
   },
   {
     "gameEventId": "401628332102874401",
-    "clock": {"quarter": 2, "secondsRemaining": 775},
+    "clock": {"period": 2, "secondsRemaining": 775},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 50,
@@ -966,7 +966,7 @@
   },
   {
     "gameEventId": "401628332102879801",
-    "clock": {"quarter": 2, "secondsRemaining": 721},
+    "clock": {"period": 2, "secondsRemaining": 721},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 52,
@@ -983,7 +983,7 @@
   },
   {
     "gameEventId": "401628332102887001",
-    "clock": {"quarter": 2, "secondsRemaining": 689},
+    "clock": {"period": 2, "secondsRemaining": 689},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 51,
@@ -998,7 +998,7 @@
   },
   {
     "gameEventId": "401628332102888201",
-    "clock": {"quarter": 2, "secondsRemaining": 677},
+    "clock": {"period": 2, "secondsRemaining": 677},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 51,
@@ -1018,7 +1018,7 @@
   },
   {
     "gameEventId": "401628332102889201",
-    "clock": {"quarter": 2, "secondsRemaining": 667},
+    "clock": {"period": 2, "secondsRemaining": 667},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 18,
@@ -1038,7 +1038,7 @@
   },
   {
     "gameEventId": "401628332102894201",
-    "clock": {"quarter": 2, "secondsRemaining": 657},
+    "clock": {"period": 2, "secondsRemaining": 657},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 29,
@@ -1055,7 +1055,7 @@
   },
   {
     "gameEventId": "401628332102896502",
-    "clock": {"quarter": 2, "secondsRemaining": 634},
+    "clock": {"period": 2, "secondsRemaining": 634},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 27,
@@ -1072,7 +1072,7 @@
   },
   {
     "gameEventId": "401628332102899901",
-    "clock": {"quarter": 2, "secondsRemaining": 600},
+    "clock": {"period": 2, "secondsRemaining": 600},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 35,
@@ -1092,7 +1092,7 @@
   },
   {
     "gameEventId": "401628332102907201",
-    "clock": {"quarter": 2, "secondsRemaining": 567},
+    "clock": {"period": 2, "secondsRemaining": 567},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 24,
@@ -1108,7 +1108,7 @@
   },
   {
     "gameEventId": "401628332102907801",
-    "clock": {"quarter": 2, "secondsRemaining": 561},
+    "clock": {"period": 2, "secondsRemaining": 561},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 9,
@@ -1125,7 +1125,7 @@
   },
   {
     "gameEventId": "401628332102915701",
-    "clock": {"quarter": 2, "secondsRemaining": 522},
+    "clock": {"period": 2, "secondsRemaining": 522},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 8,
@@ -1145,7 +1145,7 @@
   },
   {
     "gameEventId": "401628332102916401",
-    "clock": {"quarter": 2, "secondsRemaining": 515},
+    "clock": {"period": 2, "secondsRemaining": 515},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 8,
@@ -1165,7 +1165,7 @@
   },
   {
     "gameEventId": "401628332102916701",
-    "clock": {"quarter": 2, "secondsRemaining": 512},
+    "clock": {"period": 2, "secondsRemaining": 512},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 8,
@@ -1186,7 +1186,7 @@
   },
   {
     "gameEventId": "401628332102916702",
-    "clock": {"quarter": 2, "secondsRemaining": 512},
+    "clock": {"period": 2, "secondsRemaining": 512},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -1205,7 +1205,7 @@
   },
   {
     "gameEventId": "401628332102918801",
-    "clock": {"quarter": 2, "secondsRemaining": 491},
+    "clock": {"period": 2, "secondsRemaining": 491},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 19,
@@ -1222,7 +1222,7 @@
   },
   {
     "gameEventId": "401628332102924401",
-    "clock": {"quarter": 2, "secondsRemaining": 475},
+    "clock": {"period": 2, "secondsRemaining": 475},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 24,
@@ -1242,7 +1242,7 @@
   },
   {
     "gameEventId": "401628332102925901",
-    "clock": {"quarter": 2, "secondsRemaining": 460},
+    "clock": {"period": 2, "secondsRemaining": 460},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 37,
@@ -1259,7 +1259,7 @@
   },
   {
     "gameEventId": "401628332102928801",
-    "clock": {"quarter": 2, "secondsRemaining": 431},
+    "clock": {"period": 2, "secondsRemaining": 431},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -1279,7 +1279,7 @@
   },
   {
     "gameEventId": "401628332102934101",
-    "clock": {"quarter": 2, "secondsRemaining": 418},
+    "clock": {"period": 2, "secondsRemaining": 418},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -1299,7 +1299,7 @@
   },
   {
     "gameEventId": "401628332102938701",
-    "clock": {"quarter": 2, "secondsRemaining": 372},
+    "clock": {"period": 2, "secondsRemaining": 372},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 24,
@@ -1319,7 +1319,7 @@
   },
   {
     "gameEventId": "401628332102939901",
-    "clock": {"quarter": 2, "secondsRemaining": 360},
+    "clock": {"period": 2, "secondsRemaining": 360},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 86,
@@ -1336,7 +1336,7 @@
   },
   {
     "gameEventId": "401628332102946801",
-    "clock": {"quarter": 2, "secondsRemaining": 331},
+    "clock": {"period": 2, "secondsRemaining": 331},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 84,
@@ -1356,7 +1356,7 @@
   },
   {
     "gameEventId": "401628332102949902",
-    "clock": {"quarter": 2, "secondsRemaining": 300},
+    "clock": {"period": 2, "secondsRemaining": 300},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 76,
@@ -1373,7 +1373,7 @@
   },
   {
     "gameEventId": "401628332102956901",
-    "clock": {"quarter": 2, "secondsRemaining": 270},
+    "clock": {"period": 2, "secondsRemaining": 270},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 80,
@@ -1390,7 +1390,7 @@
   },
   {
     "gameEventId": "401628332102959401",
-    "clock": {"quarter": 2, "secondsRemaining": 245},
+    "clock": {"period": 2, "secondsRemaining": 245},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 51,
@@ -1410,7 +1410,7 @@
   },
   {
     "gameEventId": "401628332102964401",
-    "clock": {"quarter": 2, "secondsRemaining": 235},
+    "clock": {"period": 2, "secondsRemaining": 235},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 51,
@@ -1427,7 +1427,7 @@
   },
   {
     "gameEventId": "401628332102968001",
-    "clock": {"quarter": 2, "secondsRemaining": 199},
+    "clock": {"period": 2, "secondsRemaining": 199},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 41,
@@ -1443,7 +1443,7 @@
   },
   {
     "gameEventId": "401628332102974401",
-    "clock": {"quarter": 2, "secondsRemaining": 175},
+    "clock": {"period": 2, "secondsRemaining": 175},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 46,
@@ -1463,7 +1463,7 @@
   },
   {
     "gameEventId": "401628332102975901",
-    "clock": {"quarter": 2, "secondsRemaining": 160},
+    "clock": {"period": 2, "secondsRemaining": 160},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 40,
@@ -1483,7 +1483,7 @@
   },
   {
     "gameEventId": "401628332102978801",
-    "clock": {"quarter": 2, "secondsRemaining": 131},
+    "clock": {"period": 2, "secondsRemaining": 131},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 40,
@@ -1503,7 +1503,7 @@
   },
   {
     "gameEventId": "401628332102985001",
-    "clock": {"quarter": 2, "secondsRemaining": 109},
+    "clock": {"period": 2, "secondsRemaining": 109},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 40,
@@ -1523,7 +1523,7 @@
   },
   {
     "gameEventId": "401628332102987901",
-    "clock": {"quarter": 2, "secondsRemaining": 80},
+    "clock": {"period": 2, "secondsRemaining": 80},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 11,
@@ -1543,7 +1543,7 @@
   },
   {
     "gameEventId": "401628332102988201",
-    "clock": {"quarter": 2, "secondsRemaining": 77},
+    "clock": {"period": 2, "secondsRemaining": 77},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 14,
@@ -1560,7 +1560,7 @@
   },
   {
     "gameEventId": "401628332102988202",
-    "clock": {"quarter": 2, "secondsRemaining": 77},
+    "clock": {"period": 2, "secondsRemaining": 77},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 16,
@@ -1575,7 +1575,7 @@
   },
   {
     "gameEventId": "401628332102988701",
-    "clock": {"quarter": 2, "secondsRemaining": 72},
+    "clock": {"period": 2, "secondsRemaining": 72},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 16,
@@ -1595,7 +1595,7 @@
   },
   {
     "gameEventId": "401628332102989401",
-    "clock": {"quarter": 2, "secondsRemaining": 65},
+    "clock": {"period": 2, "secondsRemaining": 65},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 26,
@@ -1612,7 +1612,7 @@
   },
   {
     "gameEventId": "401628332102994101",
-    "clock": {"quarter": 2, "secondsRemaining": 58},
+    "clock": {"period": 2, "secondsRemaining": 58},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -1629,7 +1629,7 @@
   },
   {
     "gameEventId": "401628332102994102",
-    "clock": {"quarter": 2, "secondsRemaining": 58},
+    "clock": {"period": 2, "secondsRemaining": 58},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 39,
@@ -1644,7 +1644,7 @@
   },
   {
     "gameEventId": "401628332102994601",
-    "clock": {"quarter": 2, "secondsRemaining": 53},
+    "clock": {"period": 2, "secondsRemaining": 53},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 39,
@@ -1664,7 +1664,7 @@
   },
   {
     "gameEventId": "401628332102995301",
-    "clock": {"quarter": 2, "secondsRemaining": 46},
+    "clock": {"period": 2, "secondsRemaining": 46},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 39,
@@ -1684,7 +1684,7 @@
   },
   {
     "gameEventId": "401628332102995801",
-    "clock": {"quarter": 2, "secondsRemaining": 41},
+    "clock": {"period": 2, "secondsRemaining": 41},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 51,
@@ -1700,7 +1700,7 @@
   },
   {
     "gameEventId": "401628332102999901",
-    "clock": {"quarter": 2, "secondsRemaining": 0},
+    "clock": {"period": 2, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 61,
@@ -1717,7 +1717,7 @@
   },
   {
     "gameEventId": "401628332102999902",
-    "clock": {"quarter": 2, "secondsRemaining": 0},
+    "clock": {"period": 2, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 61,
@@ -1731,7 +1731,7 @@
   },
   {
     "gameEventId": "401628332103849901",
-    "clock": {"quarter": 3, "secondsRemaining": 900},
+    "clock": {"period": 3, "secondsRemaining": 900},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -1750,7 +1750,7 @@
   },
   {
     "gameEventId": "401628332103855301",
-    "clock": {"quarter": 3, "secondsRemaining": 886},
+    "clock": {"period": 3, "secondsRemaining": 886},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 76,
@@ -1770,7 +1770,7 @@
   },
   {
     "gameEventId": "401628332103857801",
-    "clock": {"quarter": 3, "secondsRemaining": 861},
+    "clock": {"period": 3, "secondsRemaining": 861},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 67,
@@ -1787,7 +1787,7 @@
   },
   {
     "gameEventId": "401628332103864801",
-    "clock": {"quarter": 3, "secondsRemaining": 831},
+    "clock": {"period": 3, "secondsRemaining": 831},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 67,
@@ -1804,7 +1804,7 @@
   },
   {
     "gameEventId": "401628332103868501",
-    "clock": {"quarter": 3, "secondsRemaining": 794},
+    "clock": {"period": 3, "secondsRemaining": 794},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 67,
@@ -1819,7 +1819,7 @@
   },
   {
     "gameEventId": "401628332103869301",
-    "clock": {"quarter": 3, "secondsRemaining": 786},
+    "clock": {"period": 3, "secondsRemaining": 786},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 67,
@@ -1836,7 +1836,7 @@
   },
   {
     "gameEventId": "401628332103875501",
-    "clock": {"quarter": 3, "secondsRemaining": 764},
+    "clock": {"period": 3, "secondsRemaining": 764},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 59,
@@ -1856,7 +1856,7 @@
   },
   {
     "gameEventId": "401628332103876101",
-    "clock": {"quarter": 3, "secondsRemaining": 758},
+    "clock": {"period": 3, "secondsRemaining": 758},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 59,
@@ -1873,7 +1873,7 @@
   },
   {
     "gameEventId": "401628332103884701",
-    "clock": {"quarter": 3, "secondsRemaining": 712},
+    "clock": {"period": 3, "secondsRemaining": 712},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 60,
@@ -1890,7 +1890,7 @@
   },
   {
     "gameEventId": "401628332103888401",
-    "clock": {"quarter": 3, "secondsRemaining": 675},
+    "clock": {"period": 3, "secondsRemaining": 675},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 51,
@@ -1907,7 +1907,7 @@
   },
   {
     "gameEventId": "401628332103889001",
-    "clock": {"quarter": 3, "secondsRemaining": 669},
+    "clock": {"period": 3, "secondsRemaining": 669},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 50,
@@ -1924,7 +1924,7 @@
   },
   {
     "gameEventId": "401628332103897101",
-    "clock": {"quarter": 3, "secondsRemaining": 628},
+    "clock": {"period": 3, "secondsRemaining": 628},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 50,
@@ -1944,7 +1944,7 @@
   },
   {
     "gameEventId": "401628332103904401",
-    "clock": {"quarter": 3, "secondsRemaining": 595},
+    "clock": {"period": 3, "secondsRemaining": 595},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 61,
@@ -1961,7 +1961,7 @@
   },
   {
     "gameEventId": "401628332103906501",
-    "clock": {"quarter": 3, "secondsRemaining": 574},
+    "clock": {"period": 3, "secondsRemaining": 574},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 62,
@@ -1981,7 +1981,7 @@
   },
   {
     "gameEventId": "401628332103907301",
-    "clock": {"quarter": 3, "secondsRemaining": 566},
+    "clock": {"period": 3, "secondsRemaining": 566},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 62,
@@ -1998,7 +1998,7 @@
   },
   {
     "gameEventId": "401628332103914401",
-    "clock": {"quarter": 3, "secondsRemaining": 535},
+    "clock": {"period": 3, "secondsRemaining": 535},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 63,
@@ -2018,7 +2018,7 @@
   },
   {
     "gameEventId": "401628332103917601",
-    "clock": {"quarter": 3, "secondsRemaining": 503},
+    "clock": {"period": 3, "secondsRemaining": 503},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 59,
@@ -2038,7 +2038,7 @@
   },
   {
     "gameEventId": "401628332103925101",
-    "clock": {"quarter": 3, "secondsRemaining": 468},
+    "clock": {"period": 3, "secondsRemaining": 468},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 43,
@@ -2054,7 +2054,7 @@
   },
   {
     "gameEventId": "401628332103927001",
-    "clock": {"quarter": 3, "secondsRemaining": 449},
+    "clock": {"period": 3, "secondsRemaining": 449},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 58,
@@ -2074,7 +2074,7 @@
   },
   {
     "gameEventId": "401628332103934901",
-    "clock": {"quarter": 3, "secondsRemaining": 410},
+    "clock": {"period": 3, "secondsRemaining": 410},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 47,
@@ -2091,7 +2091,7 @@
   },
   {
     "gameEventId": "401628332103934903",
-    "clock": {"quarter": 3, "secondsRemaining": 410},
+    "clock": {"period": 3, "secondsRemaining": 410},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -2110,7 +2110,7 @@
   },
   {
     "gameEventId": "401628332103935901",
-    "clock": {"quarter": 3, "secondsRemaining": 400},
+    "clock": {"period": 3, "secondsRemaining": 400},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -2127,7 +2127,7 @@
   },
   {
     "gameEventId": "401628332103939401",
-    "clock": {"quarter": 3, "secondsRemaining": 365},
+    "clock": {"period": 3, "secondsRemaining": 365},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 29,
@@ -2147,7 +2147,7 @@
   },
   {
     "gameEventId": "401628332103947301",
-    "clock": {"quarter": 3, "secondsRemaining": 326},
+    "clock": {"period": 3, "secondsRemaining": 326},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 34,
@@ -2164,7 +2164,7 @@
   },
   {
     "gameEventId": "401628332103954801",
-    "clock": {"quarter": 3, "secondsRemaining": 291},
+    "clock": {"period": 3, "secondsRemaining": 291},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 36,
@@ -2184,7 +2184,7 @@
   },
   {
     "gameEventId": "401628332103957501",
-    "clock": {"quarter": 3, "secondsRemaining": 264},
+    "clock": {"period": 3, "secondsRemaining": 264},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 43,
@@ -2201,7 +2201,7 @@
   },
   {
     "gameEventId": "401628332103965601",
-    "clock": {"quarter": 3, "secondsRemaining": 223},
+    "clock": {"period": 3, "secondsRemaining": 223},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 50,
@@ -2218,7 +2218,7 @@
   },
   {
     "gameEventId": "401628332103975701",
-    "clock": {"quarter": 3, "secondsRemaining": 162},
+    "clock": {"period": 3, "secondsRemaining": 162},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 50,
@@ -2235,7 +2235,7 @@
   },
   {
     "gameEventId": "401628332103979101",
-    "clock": {"quarter": 3, "secondsRemaining": 128},
+    "clock": {"period": 3, "secondsRemaining": 128},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 50,
@@ -2252,7 +2252,7 @@
   },
   {
     "gameEventId": "401628332103985801",
-    "clock": {"quarter": 3, "secondsRemaining": 101},
+    "clock": {"period": 3, "secondsRemaining": 101},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 55,
@@ -2268,7 +2268,7 @@
   },
   {
     "gameEventId": "401628332103987701",
-    "clock": {"quarter": 3, "secondsRemaining": 82},
+    "clock": {"period": 3, "secondsRemaining": 82},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 50,
@@ -2288,7 +2288,7 @@
   },
   {
     "gameEventId": "401628332103988301",
-    "clock": {"quarter": 3, "secondsRemaining": 76},
+    "clock": {"period": 3, "secondsRemaining": 76},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 80,
@@ -2305,7 +2305,7 @@
   },
   {
     "gameEventId": "401628332103995301",
-    "clock": {"quarter": 3, "secondsRemaining": 46},
+    "clock": {"period": 3, "secondsRemaining": 46},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 73,
@@ -2325,7 +2325,7 @@
   },
   {
     "gameEventId": "401628332103995601",
-    "clock": {"quarter": 3, "secondsRemaining": 43},
+    "clock": {"period": 3, "secondsRemaining": 43},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 73,
@@ -2345,7 +2345,7 @@
   },
   {
     "gameEventId": "401628332103996701",
-    "clock": {"quarter": 3, "secondsRemaining": 32},
+    "clock": {"period": 3, "secondsRemaining": 32},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 73,
@@ -2365,7 +2365,7 @@
   },
   {
     "gameEventId": "401628332103997501",
-    "clock": {"quarter": 3, "secondsRemaining": 24},
+    "clock": {"period": 3, "secondsRemaining": 24},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -2382,7 +2382,7 @@
   },
   {
     "gameEventId": "401628332103999901",
-    "clock": {"quarter": 3, "secondsRemaining": 0},
+    "clock": {"period": 3, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 47,
@@ -2399,7 +2399,7 @@
   },
   {
     "gameEventId": "401628332103999902",
-    "clock": {"quarter": 3, "secondsRemaining": 0},
+    "clock": {"period": 3, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 47,
@@ -2413,7 +2413,7 @@
   },
   {
     "gameEventId": "401628332104854401",
-    "clock": {"quarter": 4, "secondsRemaining": 895},
+    "clock": {"period": 4, "secondsRemaining": 895},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 53,
@@ -2430,7 +2430,7 @@
   },
   {
     "gameEventId": "401628332104858001",
-    "clock": {"quarter": 4, "secondsRemaining": 859},
+    "clock": {"period": 4, "secondsRemaining": 859},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 60,
@@ -2450,7 +2450,7 @@
   },
   {
     "gameEventId": "401628332104859901",
-    "clock": {"quarter": 4, "secondsRemaining": 840},
+    "clock": {"period": 4, "secondsRemaining": 840},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 60,
@@ -2467,7 +2467,7 @@
   },
   {
     "gameEventId": "401628332104864801",
-    "clock": {"quarter": 4, "secondsRemaining": 831},
+    "clock": {"period": 4, "secondsRemaining": 831},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 79,
@@ -2487,7 +2487,7 @@
   },
   {
     "gameEventId": "401628332104866801",
-    "clock": {"quarter": 4, "secondsRemaining": 811},
+    "clock": {"period": 4, "secondsRemaining": 811},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 79,
@@ -2504,7 +2504,7 @@
   },
   {
     "gameEventId": "401628332104868401",
-    "clock": {"quarter": 4, "secondsRemaining": 795},
+    "clock": {"period": 4, "secondsRemaining": 795},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 93,
@@ -2520,7 +2520,7 @@
   },
   {
     "gameEventId": "401628332104869201",
-    "clock": {"quarter": 4, "secondsRemaining": 787},
+    "clock": {"period": 4, "secondsRemaining": 787},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 98,
@@ -2537,7 +2537,7 @@
   },
   {
     "gameEventId": "401628332104877101",
-    "clock": {"quarter": 4, "secondsRemaining": 748},
+    "clock": {"period": 4, "secondsRemaining": 748},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 97,
@@ -2554,7 +2554,7 @@
   },
   {
     "gameEventId": "401628332104885001",
-    "clock": {"quarter": 4, "secondsRemaining": 709},
+    "clock": {"period": 4, "secondsRemaining": 709},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 99,
@@ -2571,7 +2571,7 @@
   },
   {
     "gameEventId": "401628332104885003",
-    "clock": {"quarter": 4, "secondsRemaining": 709},
+    "clock": {"period": 4, "secondsRemaining": 709},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 35,
@@ -2590,7 +2590,7 @@
   },
   {
     "gameEventId": "401628332104885901",
-    "clock": {"quarter": 4, "secondsRemaining": 700},
+    "clock": {"period": 4, "secondsRemaining": 700},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 75,
@@ -2607,7 +2607,7 @@
   },
   {
     "gameEventId": "401628332104889601",
-    "clock": {"quarter": 4, "secondsRemaining": 663},
+    "clock": {"period": 4, "secondsRemaining": 663},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 75,
@@ -2627,7 +2627,7 @@
   },
   {
     "gameEventId": "401628332104896901",
-    "clock": {"quarter": 4, "secondsRemaining": 630},
+    "clock": {"period": 4, "secondsRemaining": 630},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -2647,7 +2647,7 @@
   },
   {
     "gameEventId": "401628332104898801",
-    "clock": {"quarter": 4, "secondsRemaining": 611},
+    "clock": {"period": 4, "secondsRemaining": 611},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -2664,7 +2664,7 @@
   },
   {
     "gameEventId": "401628332104904301",
-    "clock": {"quarter": 4, "secondsRemaining": 596},
+    "clock": {"period": 4, "secondsRemaining": 596},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 68,
@@ -2680,7 +2680,7 @@
   },
   {
     "gameEventId": "401628332104906601",
-    "clock": {"quarter": 4, "secondsRemaining": 573},
+    "clock": {"period": 4, "secondsRemaining": 573},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 73,
@@ -2700,7 +2700,7 @@
   },
   {
     "gameEventId": "401628332104916301",
-    "clock": {"quarter": 4, "secondsRemaining": 516},
+    "clock": {"period": 4, "secondsRemaining": 516},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 64,
@@ -2720,7 +2720,7 @@
   },
   {
     "gameEventId": "401628332104917501",
-    "clock": {"quarter": 4, "secondsRemaining": 504},
+    "clock": {"period": 4, "secondsRemaining": 504},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 15,
@@ -2737,7 +2737,7 @@
   },
   {
     "gameEventId": "401628332104925201",
-    "clock": {"quarter": 4, "secondsRemaining": 467},
+    "clock": {"period": 4, "secondsRemaining": 467},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 15,
@@ -2757,7 +2757,7 @@
   },
   {
     "gameEventId": "401628332104929201",
-    "clock": {"quarter": 4, "secondsRemaining": 427},
+    "clock": {"period": 4, "secondsRemaining": 427},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 16,
@@ -2777,7 +2777,7 @@
   },
   {
     "gameEventId": "401628332104937601",
-    "clock": {"quarter": 4, "secondsRemaining": 383},
+    "clock": {"period": 4, "secondsRemaining": 383},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 24,
@@ -2797,7 +2797,7 @@
   },
   {
     "gameEventId": "401628332104938701",
-    "clock": {"quarter": 4, "secondsRemaining": 372},
+    "clock": {"period": 4, "secondsRemaining": 372},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 85,
@@ -2814,7 +2814,7 @@
   },
   {
     "gameEventId": "401628332104947801",
-    "clock": {"quarter": 4, "secondsRemaining": 321},
+    "clock": {"period": 4, "secondsRemaining": 321},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 76,
@@ -2831,7 +2831,7 @@
   },
   {
     "gameEventId": "401628332104954801",
-    "clock": {"quarter": 4, "secondsRemaining": 291},
+    "clock": {"period": 4, "secondsRemaining": 291},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 80,
@@ -2851,7 +2851,7 @@
   },
   {
     "gameEventId": "401628332104958401",
-    "clock": {"quarter": 4, "secondsRemaining": 255},
+    "clock": {"period": 4, "secondsRemaining": 255},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 71,
@@ -2871,7 +2871,7 @@
   },
   {
     "gameEventId": "401628332104964801",
-    "clock": {"quarter": 4, "secondsRemaining": 231},
+    "clock": {"period": 4, "secondsRemaining": 231},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 51,
@@ -2888,7 +2888,7 @@
   },
   {
     "gameEventId": "401628332104968601",
-    "clock": {"quarter": 4, "secondsRemaining": 193},
+    "clock": {"period": 4, "secondsRemaining": 193},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 40,
@@ -2905,7 +2905,7 @@
   },
   {
     "gameEventId": "401628332104976801",
-    "clock": {"quarter": 4, "secondsRemaining": 151},
+    "clock": {"period": 4, "secondsRemaining": 151},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 22,
@@ -2922,7 +2922,7 @@
   },
   {
     "gameEventId": "401628332104984501",
-    "clock": {"quarter": 4, "secondsRemaining": 114},
+    "clock": {"period": 4, "secondsRemaining": 114},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 21,
@@ -2939,7 +2939,7 @@
   },
   {
     "gameEventId": "401628332104984503",
-    "clock": {"quarter": 4, "secondsRemaining": 114},
+    "clock": {"period": 4, "secondsRemaining": 114},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -2958,7 +2958,7 @@
   },
   {
     "gameEventId": "401628332104985001",
-    "clock": {"quarter": 4, "secondsRemaining": 109},
+    "clock": {"period": 4, "secondsRemaining": 109},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -2978,7 +2978,7 @@
   },
   {
     "gameEventId": "401628332104985401",
-    "clock": {"quarter": 4, "secondsRemaining": 105},
+    "clock": {"period": 4, "secondsRemaining": 105},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -2998,7 +2998,7 @@
   },
   {
     "gameEventId": "401628332104986201",
-    "clock": {"quarter": 4, "secondsRemaining": 97},
+    "clock": {"period": 4, "secondsRemaining": 97},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 25,
@@ -3015,7 +3015,7 @@
   },
   {
     "gameEventId": "401628332104986202",
-    "clock": {"quarter": 4, "secondsRemaining": 97},
+    "clock": {"period": 4, "secondsRemaining": 97},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 33,
@@ -3030,7 +3030,7 @@
   },
   {
     "gameEventId": "401628332104986501",
-    "clock": {"quarter": 4, "secondsRemaining": 94},
+    "clock": {"period": 4, "secondsRemaining": 94},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 33,
@@ -3050,7 +3050,7 @@
   },
   {
     "gameEventId": "401628332104986901",
-    "clock": {"quarter": 4, "secondsRemaining": 90},
+    "clock": {"period": 4, "secondsRemaining": 90},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 33,
@@ -3067,7 +3067,7 @@
   },
   {
     "gameEventId": "401628332104986902",
-    "clock": {"quarter": 4, "secondsRemaining": 90},
+    "clock": {"period": 4, "secondsRemaining": 90},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 37,
@@ -3082,7 +3082,7 @@
   },
   {
     "gameEventId": "401628332104987801",
-    "clock": {"quarter": 4, "secondsRemaining": 81},
+    "clock": {"period": 4, "secondsRemaining": 81},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 37,
@@ -3099,7 +3099,7 @@
   },
   {
     "gameEventId": "401628332104987802",
-    "clock": {"quarter": 4, "secondsRemaining": 81},
+    "clock": {"period": 4, "secondsRemaining": 81},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 33,
@@ -3114,7 +3114,7 @@
   },
   {
     "gameEventId": "401628332104988801",
-    "clock": {"quarter": 4, "secondsRemaining": 71},
+    "clock": {"period": 4, "secondsRemaining": 71},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 33,
@@ -3131,7 +3131,7 @@
   },
   {
     "gameEventId": "401628332104996501",
-    "clock": {"quarter": 4, "secondsRemaining": 34},
+    "clock": {"period": 4, "secondsRemaining": 34},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 28,
@@ -3146,7 +3146,7 @@
   },
   {
     "gameEventId": "401628332104996901",
-    "clock": {"quarter": 4, "secondsRemaining": 30},
+    "clock": {"period": 4, "secondsRemaining": 30},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 28,
@@ -3167,7 +3167,7 @@
   },
   {
     "gameEventId": "401628332104996902",
-    "clock": {"quarter": 4, "secondsRemaining": 30},
+    "clock": {"period": 4, "secondsRemaining": 30},
     "fieldPosition": {
       "possessionTeam": "Notre Dame",
       "yardLine": 65,
@@ -3186,7 +3186,7 @@
   },
   {
     "gameEventId": "401628332104997501",
-    "clock": {"quarter": 4, "secondsRemaining": 24},
+    "clock": {"period": 4, "secondsRemaining": 24},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 28,
@@ -3202,7 +3202,7 @@
   },
   {
     "gameEventId": "401628332104998801",
-    "clock": {"quarter": 4, "secondsRemaining": 11},
+    "clock": {"period": 4, "secondsRemaining": 11},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 18,
@@ -3219,7 +3219,7 @@
   },
   {
     "gameEventId": "401628332104999301",
-    "clock": {"quarter": 4, "secondsRemaining": 6},
+    "clock": {"period": 4, "secondsRemaining": 6},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 29,
@@ -3239,7 +3239,7 @@
   },
   {
     "gameEventId": "401628332104999901",
-    "clock": {"quarter": 4, "secondsRemaining": 0},
+    "clock": {"period": 4, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 29,
@@ -3256,7 +3256,7 @@
   },
   {
     "gameEventId": "401628332104999902",
-    "clock": {"quarter": 4, "secondsRemaining": 0},
+    "clock": {"period": 4, "secondsRemaining": 0},
     "fieldPosition": {
       "possessionTeam": "Texas A&M",
       "yardLine": 29,

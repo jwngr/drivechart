@@ -1,9 +1,9 @@
-import {prefixErrorResult, prefixResultIfError} from '@shared/lib/errorUtils.shared';
+import {prefixResultIfError} from '@shared/lib/errorUtils.shared';
 import {parseZodResult} from '@shared/lib/parser.shared';
 import {assertNever} from '@shared/lib/utils.shared';
 import {logger} from '@shared/services/logger.shared';
-import type {GameEvent, GameEventId, PenaltyContext} from '@shared/types/gameEvents.types';
-import {GameEventType, ScoringType} from '@shared/types/gameEvents.types';
+import type {GameEvent, PenaltyContext} from '@shared/types/gameEvents.types';
+import {GameEventType, parseGameEventId, ScoringType} from '@shared/types/gameEvents.types';
 import {makeSuccessResult, type Result} from '@shared/types/result.types';
 import {z} from 'zod';
 
@@ -70,15 +70,13 @@ export function isKickoffCfbdPlayType(playType: CfbdPlayType): boolean {
   }
 }
 
-const cfbdPlayIdSchema = z.string();
-
 const cfbdClockSchema = z.object({
   minutes: z.number(),
   seconds: z.number(),
 });
 
 export const cfbdPlaySchema = z.object({
-  id: cfbdPlayIdSchema,
+  id: z.string(),
   drive_id: z.string(),
   game_id: z.number(),
   drive_number: z.number(),
@@ -114,17 +112,8 @@ export const parseCfbdPlay = (play: unknown): Result<CfbdPlay> => {
   return prefixResultIfError(parseResult, 'Failed to parse CFBD play');
 };
 
-/** Parses a {@link GameEventId} from an unknown value. */
-function parseCfbdPlayId(unknownPlayId: unknown): Result<GameEventId> {
-  const parseResult = parseZodResult(cfbdPlayIdSchema, unknownPlayId);
-  if (!parseResult.success) {
-    return prefixErrorResult(parseResult, 'Error parsing GameEventId');
-  }
-  return makeSuccessResult(parseResult.value as GameEventId);
-}
-
 export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | null> {
-  const gameEventIdResult = parseCfbdPlayId(play.id);
+  const gameEventIdResult = parseGameEventId(play.id);
   if (!gameEventIdResult.success) return gameEventIdResult;
 
   const isKickoff = isKickoffCfbdPlayType(play.play_type);
@@ -133,7 +122,7 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
   const basePlay = {
     gameEventId: gameEventIdResult.value,
     clock: {
-      quarter: play.period,
+      period: play.period,
       secondsRemaining: play.clock.minutes * 60 + play.clock.seconds,
     },
     fieldPosition: {
@@ -296,6 +285,7 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
       });
 
     case CfbdPlayType.FumbleRecoveryOwn:
+      // TODO: Handle this.
       logger.warn('Skipping play:', play);
       return makeSuccessResult(null);
 
