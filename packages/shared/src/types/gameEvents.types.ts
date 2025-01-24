@@ -1,5 +1,27 @@
+import {prefixErrorResult} from '@shared/lib/errorUtils.shared';
+import {parseZodResult} from '@shared/lib/parser.shared';
+import {makeUuid} from '@shared/lib/utils.shared';
+import {makeSuccessResult, type Result} from '@shared/types/result.types';
+import {z} from 'zod';
+
 /** Strongly-typed type for a game event's unique identifier. Prefer this over plain strings. */
 export type GameEventId = string & {readonly __brand: 'GameEventIdBrand'};
+
+const gameEventIdSchema = z.string();
+
+/** Parses a {@link GameEventId} from an unknown value. */
+export function parseGameEventId(unknownPlayId: unknown): Result<GameEventId> {
+  const parseResult = parseZodResult(gameEventIdSchema, unknownPlayId);
+  if (!parseResult.success) {
+    return prefixErrorResult(parseResult, 'Error parsing GameEventId');
+  }
+  return makeSuccessResult(parseResult.value as GameEventId);
+}
+
+/** Creates a new {@link GameEventId}. */
+export function makeGameEventId(): GameEventId {
+  return makeUuid<GameEventId>();
+}
 
 export enum GameEventType {
   // Standard plays.
@@ -24,10 +46,9 @@ export enum GameEventType {
 }
 
 export interface GameClock {
-  /** Quarter number. 1-4 for regulation, 5+ for overtime periods. */
-  readonly quarter: number;
-  /** Number of seconds remaining in the quarter. Maximum of 60 * 15 = 900 for first play of the
-   * quarter. Minimum of 0 for untimed downs. */
+  /** Period number. 1-4 for regulation, 5+ for overtime periods. */
+  readonly period: number;
+  /** Number of seconds remaining in the period. Maximum of 60 * 15 = 900. Minimum of 0 for untimed downs. */
   readonly secondsRemaining: number;
 }
 
@@ -130,7 +151,7 @@ interface ScoringContext {
   readonly points: number;
 }
 
-interface RushGameEvent extends BaseGameEvent {
+export interface RushGameEvent extends BaseGameEvent {
   readonly type: GameEventType.Rush;
   /** Player carrying the ball. */
   readonly rusher: string;
@@ -140,7 +161,7 @@ interface RushGameEvent extends BaseGameEvent {
   readonly isFumble: boolean;
 }
 
-interface PassAttemptGameEvent extends BaseGameEvent {
+export interface PassAttemptGameEvent extends BaseGameEvent {
   readonly type: GameEventType.PassAttempt;
   /** Player attempting the pass. */
   readonly passer: string;
@@ -164,7 +185,7 @@ interface PenaltyGameEvent extends BaseGameEvent {
   readonly yardage: number;
 }
 
-interface KickoffGameEvent extends BaseGameEvent {
+export interface KickoffGameEvent extends BaseGameEvent {
   readonly type: GameEventType.Kickoff;
   /** Player kicking off. */
   readonly kicker: string;
@@ -178,7 +199,7 @@ interface KickoffGameEvent extends BaseGameEvent {
   readonly isOutOfBounds: boolean;
 }
 
-interface FieldGoalAttemptGameEvent extends BaseGameEvent {
+export interface FieldGoalAttemptGameEvent extends BaseGameEvent {
   readonly type: GameEventType.FieldGoalAttempt;
   /** Player attempting the field goal. */
   readonly kicker: string;
@@ -265,3 +286,5 @@ export type GameEvent =
   | PenaltyGameEvent
   | TimeoutGameEvent
   | PeriodEndGameEvent;
+
+export type Drive = GameEvent[];
