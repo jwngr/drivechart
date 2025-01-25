@@ -178,7 +178,7 @@ export function makePreSnapPenaltyGameEvent(
 
 export function makeEndOfPeriodGameEvent(
   args: Partial<
-    Omit<EndOfPeriodGameEvent, 'gameEventId' | 'type' | 'clock'> & {period: 1 | 2 | 3 | 4 | 5}
+    Omit<EndOfPeriodGameEvent, 'gameEventId' | 'type' | 'clock'> & {period?: 1 | 2 | 3 | 4 | 5}
   > = {}
 ): EndOfPeriodGameEvent {
   return {
