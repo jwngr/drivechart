@@ -15,7 +15,7 @@ import type {
 } from '@shared/types/gameEvents.types';
 import {GameEventType, makeGameEventId} from '@shared/types/gameEvents.types';
 
-export function makeFieldPosition(args: Partial<FieldPosition> = {}): FieldPosition {
+function makeFieldPosition(args: Partial<FieldPosition> = {}): FieldPosition {
   return {
     possessionTeam: args.possessionTeam ?? 'ND',
     yardLine: args.yardLine ?? 50,
@@ -88,8 +88,8 @@ export function makePuntGameEvent(
   return {
     gameEventId: makeGameEventId(),
     type: GameEventType.Punt,
-    clock: START_OF_FIRST_PERIOD_CLOCK,
-    fieldPosition: makeFieldPosition(),
+    clock: args.clock ?? START_OF_FIRST_PERIOD_CLOCK,
+    fieldPosition: args.fieldPosition ?? makeFieldPosition(),
     turnover: args.turnover ?? null,
     penalties: args.penalties ?? [],
     scoring: args.scoring ?? null,
@@ -108,8 +108,8 @@ export function makeFieldGoalAttemptGameEvent(
   return {
     gameEventId: makeGameEventId(),
     type: GameEventType.FieldGoalAttempt,
-    clock: START_OF_FIRST_PERIOD_CLOCK,
-    fieldPosition: makeFieldPosition(),
+    clock: args.clock ?? START_OF_FIRST_PERIOD_CLOCK,
+    fieldPosition: args.fieldPosition ?? makeFieldPosition(),
     turnover: args.turnover ?? null,
     penalties: args.penalties ?? [],
     scoring: args.scoring ?? null,
@@ -129,8 +129,8 @@ export function makeExtraPointAttemptGameEvent(
   return {
     gameEventId: makeGameEventId(),
     type: GameEventType.ExtraPointAttempt,
-    clock: START_OF_FIRST_PERIOD_CLOCK,
-    fieldPosition: makeFieldPosition(),
+    clock: args.clock ?? START_OF_FIRST_PERIOD_CLOCK,
+    fieldPosition: args.fieldPosition ?? makeFieldPosition(),
     turnover: args.turnover ?? null,
     penalties: args.penalties ?? [],
     scoring: args.scoring ?? null,
@@ -149,7 +149,7 @@ export function makeTwoPointConversionAttemptGameEvent(
   return {
     gameEventId: makeGameEventId(),
     type: GameEventType.TwoPointConversionAttempt,
-    clock: START_OF_FIRST_PERIOD_CLOCK,
+    clock: args.clock ?? START_OF_FIRST_PERIOD_CLOCK,
     fieldPosition: args.fieldPosition ?? makeFieldPosition(),
     turnover: args.turnover ?? null,
     penalties: args.penalties ?? [],
