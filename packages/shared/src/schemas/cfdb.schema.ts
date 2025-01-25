@@ -262,7 +262,7 @@ export function parseGameEventFromCfbdPlay(play: CfbdPlay): Result<GameEvent | n
     case CfbdPlayType.Penalty:
       return makeSuccessResult({
         ...basePlay,
-        type: GameEventType.Penalty,
+        type: GameEventType.PreSnapPenalty,
         player: extractPlayerName(/([A-Z]+(?:\s[A-Z]+)*) penalty/i),
         yardage: play.yards_gained,
       });

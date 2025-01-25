@@ -7,7 +7,7 @@ import {
   makeKickoffGameEvent,
   makePassAttemptGameEvent,
   makeRushGameEvent,
-} from '@shared/lib/testHelpers';
+} from '@shared/lib/gameEvents.shared';
 import type {GameClock, GameEvent} from '@shared/types/gameEvents.types';
 import {GameEventType, makeGameEventId, ScoringType} from '@shared/types/gameEvents.types';
 
@@ -49,15 +49,15 @@ describe('getDrives', () => {
   it('should end drives at end of 2nd, 4th, and 5th periods', () => {
     const mockEvents: GameEvent[] = [
       makeRushGameEvent(),
-      makeEndOfPeriodGameEvent(1),
+      makeEndOfPeriodGameEvent({period: 1}),
       makeRushGameEvent(),
-      makeEndOfPeriodGameEvent(2),
+      makeEndOfPeriodGameEvent({period: 2}),
       makeRushGameEvent(),
-      makeEndOfPeriodGameEvent(3),
+      makeEndOfPeriodGameEvent({period: 3}),
       makeRushGameEvent(),
-      makeEndOfPeriodGameEvent(4),
+      makeEndOfPeriodGameEvent({period: 4}),
       makeRushGameEvent(),
-      makeEndOfPeriodGameEvent(5),
+      makeEndOfPeriodGameEvent({period: 5}),
     ];
 
     const drives = getDrives(mockEvents);
