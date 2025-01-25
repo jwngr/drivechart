@@ -26,7 +26,7 @@ export function isEndOfDrive(gameEvent: GameEvent): boolean {
     case GameEventType.Punt:
       // TODO: See if fake punts which result in a first down are handled correctly.
       return true;
-    case GameEventType.Penalty:
+    case GameEventType.PreSnapPenalty:
     case GameEventType.Timeout:
       // Some events have no effect on when a drive ends.
       return false;

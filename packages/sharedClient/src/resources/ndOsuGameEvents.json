@@ -87,7 +87,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": 5
   },
@@ -137,7 +137,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": 4
   },
@@ -498,7 +498,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": 15
   },
@@ -551,7 +551,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "M",
     "yardage": -5
   },
@@ -803,7 +803,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "M",
     "yardage": -5
   },
@@ -1102,7 +1102,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "M",
     "yardage": 15
   },
@@ -1437,7 +1437,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": -5
   },
@@ -1694,7 +1694,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": -10
   },
@@ -2048,7 +2048,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": -15
   },
@@ -2262,7 +2262,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "M",
     "yardage": -5
   },
@@ -2514,7 +2514,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": 5
   },
@@ -2674,7 +2674,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "Notre Dame",
     "yardage": -5
   },
@@ -3196,7 +3196,7 @@
     "turnover": null,
     "penalties": [],
     "scoring": null,
-    "type": "PENALTY",
+    "type": "PRE_SNAP_PENALTY",
     "player": "M",
     "yardage": -10
   },
